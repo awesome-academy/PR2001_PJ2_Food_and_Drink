@@ -1,0 +1,138 @@
+<header id="header" class="default">
+      <div class="topbar">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="topbar-left text-center text-md-left">
+                  <ul class="list-inline">
+                    <li> <a href="#"> Contact </a></li>
+                    <li> <a href="#"> About Us </a></li>
+                    <li> <a href="#"> Blog </a></li>                      
+                    <li> <a href="#"> Become a Partner </a></li>   
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="topbar-right text-center text-md-right">
+                  <ul class="list-inline">
+                    <li><a href="#"><i class="far fa-calendar-alt"></i>Food $ Drink Bookings</a> </li>
+                    <li><a href="#"><i class="far fa-bookmark"></i>Bookmarks <span class="badge badge-secondary"></span></a></li>                    
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i>Food Orders <span class="badge badge-secondary"></span></a></li>                   
+                                      
+                    <li class="nav-item">
+                      <%=link_to "Login now", "#" %>
+                    </li>                 
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="menu">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2 col-sm-12 col-xs-12">
+              <div class="menu-left text-center text-md-left">
+                <div class="logo-box">
+                  <%= link_to root_path do %>
+                    <%= image_tag("logo1.jpg", size: "80")%>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-12 col-xs-12"> 
+              <div class="menu-items">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light menu-right">                    
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto nav-text">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#">Home </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Restaurants</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle-no-caret" href="#" 
+                         id="megaDropdown1" role="button" data-toggle="dropdown" 
+                         aria-haspopup="true" aria-expanded="false">
+                            Pages <i class="fas fa-caret-down"></i>
+                        </a>                                                   
+                        <div class="dropdown-menu mega-menu dropdown-menu-right"> 
+                          <div class="row">
+                          <div class="col-md-3">
+                            <a class="dropdown-item" href="#"> About us</a>
+                            <a class="dropdown-item" href="#"> Recipes Detail View</a>
+                            <a class="dropdown-item" href="#"> Upload Recipe</a>
+                            <a class="dropdown-item" href="#"> Partners</a>
+                            <a class="dropdown-item" href="#"> Restaurant Detail View</a>
+                            <a class="dropdown-item" href="#"> Become a Partner</a>
+                            <a class="dropdown-item" href="#"> Add Restaurant</a>
+                            
+                          </div>
+                          <div class="col-md-3">    
+                            <a class="dropdown-item" href="#"> Add Driver</a>
+                            <a class="dropdown-item" href="#"> Meals</a>
+                            <a class="dropdown-item" href="#"> Meal Detail View</a>
+                            <a class="dropdown-item" href="#"> Checkout</a>
+                            <a class="dropdown-item" href="#"> Bill Slip</a>
+                            <a class="dropdown-item" href="#"> Browse Places</a>
+                            <a class="dropdown-item" href="#"> Near Places</a>
+                          </div>
+                          <div class="col-md-3">                                            
+                            <a class="dropdown-item" href="#"> Cafes & More</a>
+                            <a class="dropdown-item" href="#"> Upcoming Events</a>
+                            <a class="dropdown-item" href="#"> Event Detail View</a>
+                            <a class="dropdown-item" href="#"> User Profile View</a>
+                            <a class="dropdown-item" href="#"> My Order Dashboard</a>
+                            <a class="dropdown-item" href="#"> Restaurant Partner Dashboard</a>
+                            <a class="dropdown-item" href="#"> Driver Partner Dashboard</a>
+                          </div>
+                          <div class="col-md-3">                              
+                            <a class="dropdown-item" href="#"> My Setting</a>
+                            <a class="dropdown-item" href="#"> Error 404</a>
+                            <a class="dropdown-item" href="#"> Login Now</a>
+                            <a class="dropdown-item" href="#"> FAQ</a>
+                            <a class="dropdown-item" href="#"> Our Blog</a>
+                            <a class="dropdown-item" href="#"> Single Blog Detail View</a>
+                            <a class="dropdown-item" href="#"> Contact</a>
+                          </div>
+                        </div>
+                        </div>  
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Browse Places</a>
+                      </li>
+                    </ul>                     
+                  </div>
+                  
+                </nav>
+                <div class="icons-set">
+                  <ul class="list-inline">
+                    <li class="icon-items nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle-no-caret" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-search"></i></a>                    
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1"> 
+                      <div class="notification-item">                         
+                        <div class="search-details">
+                          <form class="form-inline">
+                            <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                            <button class="s-btn btn-link " type="submit"><i class="fas fa-search"></i></button>
+                          </form>                                                                               
+                        </div>
+                      </div>                        
+                    </div>    
+                    </li>
+                    <li class="partner-btn">
+                      <a href="#" class="b-btn btn-link">Become a Partner</a>
+                    </li>                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>        
+    </header>
