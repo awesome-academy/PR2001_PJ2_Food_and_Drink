@@ -5,12 +5,11 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"video-form" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="form-group">
+    <%= f.submit "Send me reset password instructions",class:"btn btn-primary btn-lg active" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
