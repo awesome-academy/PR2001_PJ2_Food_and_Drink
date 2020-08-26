@@ -1,0 +1,44 @@
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<section class="login_register">					
+		<div class="container">					
+			<div class="row justify-content-center">
+				<div class="col-lg-6 col-md-6 col-12">
+					<h1>Login Now</h1>
+					<div class="login-container">
+						<div class="row">			
+							<div class="col-lg-12 col-md-12 col-12">								
+								<form>
+									<div class="login-form">	
+										<div class="login-logo">									
+											<a href="index.html"><img src="images/login-register/logo.svg" alt=""></a>
+										</div>
+										<div class="mb-6">							
+											<%= link_to "signin with facebook" , user_facebook_omniauth_authorize_path, class: "btn bg-blue-500 text-black w-full block text-center"%>											
+										</div>
+										<div class="or">
+											<p> Or </p>
+																		
+										<div class="form-group">
+											<%= f.label :email %><br />
+                      						<%= f.email_field :email, autofocus: true, autocomplete: "email" , class:"form-control", placeholder:"Enter email" %>
+										</div>
+										<div class="form-group">
+											    <%= f.label :password %><br />
+                          						<%= f.password_field :password, autocomplete: "current-password" ,class:"form-control", placeholder:"Enter password"  %>
+										</div>
+                        					<%= f.submit "Log in", class: 'btn btn-warning' %>
+											<%= render "devise/shared/links" %>			
+									</div>	
+								</form>
+							</div>
+						</div>						
+					</div>						
+				</div>				
+			</div>			
+		</div>
+    <% end %>
+	</section>
+
+
+
