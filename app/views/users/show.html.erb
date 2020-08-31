@@ -1,0 +1,117 @@
+	<!--my-account-tabs start-->
+	<section class="all-profile-details">
+		<div class="container">
+			<div class="row">
+				<%= render 'user' , user: @user%>
+				<div class="col-lg-6 col-md-8 col-12">
+					<div class="tab-content">
+						<div class="tab-pane active" id="about">
+							<div class="profile-about">
+								<div class="tab-content-heading">
+									<h4>About</h4>
+									<%= link_to edit_user_registration_path do %>
+										Edit Info<i class="far fa-edit"></i>
+									<% end %>
+								</div>
+								<div class="about-dtp">
+									<div class="about-bg">
+										<ul>
+											<li>
+												<div class="dp-detail">
+													<h6>Ful Name</h6>
+													<p><%= current_user.username %></p>
+												</div>
+											</li>
+											<li>
+												<div class="dp-detail">
+													<h6>Gender</h6>
+													<p><%= current_user.gender %></p>
+												</div>
+											</li>
+											<li>
+												<div class="dp-detail">
+													<h6>Birth</h6>
+													<p> <%= current_user.birth %> </p>
+												</div>
+											</li>
+											<li>
+												<div class="dp-detail">
+													<h6>Email Address</h6>
+													<p><%= current_user.email %></p>
+												</div>
+											</li>
+											<li>
+												<div class="dp-detail">
+													<h6>Social Accounts</h6>
+													<div class="my-social-links">
+														<a href="#" class="socail-btn-link f-btn"><i class="fab fa-facebook-f"></i></a>
+														<a href="#" class="socail-btn-link t-btn"><i class="fab fa-twitter"></i></a>
+														<a href="#" class="socail-btn-link g-btn"><i class="fab fa-google"></i></a>
+														<a href="#" class="socail-btn-link i-btn"><i class="fab fa-instagram"></i></a>
+														<a href="#" class="socail-btn-link y-btn"><i class="fab fa-youtube"></i></a>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>														
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-12">
+					<div class="suggested-peoples mt-0">
+						<div class="suggestions full-width">
+							<div class="sd-title">
+								<h3>Suggested Product</h3>
+								<i class="la la-ellipsis-v"></i>
+							</div><!--sd-title end-->
+							<div class="suggestions-list">
+								<div class="suggestion-usd">
+									<a href="user_profile_view.html"><img src="images/find-recipes/user-1.png" alt=""></a>
+									<div class="sgt-text">
+										<a href="user_profile_view.html"><h4>Johnson</h4></a>
+										<span>7 Reviews</span>
+									</div>
+									<button><i class="fas fa-user-plus"></i></button>
+								</div>
+								<div class="suggestion-usd">
+									<a href="user_profile_view.html"><img src="images/find-recipes/user-2.png" alt=""></a>
+									<div class="sgt-text">
+										<a href="user_profile_view.html"><h4>Jassia William</h4></a>
+										<span>5 Reviews</span>
+									</div>
+									<button><i class="fas fa-user-plus"></i></button>
+								</div>
+								<div class="suggestion-usd">
+									<a href="user_profile_view.html"><img src="images/find-recipes/user-3.png" alt=""></a>
+									<div class="sgt-text">
+										<a href="user_profile_view.html"><h4>Rock</h4></a>
+										<span>0 Reviews</span>
+									</div>
+									<button><i class="fas fa-user-plus"></i></button>
+								</div>
+								<div class="suggestion-usd">
+									<a href="user_profile_view.html"><img src="images/find-recipes/user-4.png" alt=""></a>
+									<div class="sgt-text">
+										<a href="user_profile_view.html"><h4>Davil Smith</h4></a>
+										<span>10 Reviews</span>
+									</div>
+									<button><i class="fas fa-user-plus"></i></button>
+								</div>
+								<div class="suggestion-usd">
+									<a href="user_profile_view.html"><img src="images/find-recipes/user-5.png" alt=""></a>
+									<div class="sgt-text">
+										<a href="user_profile_view.html"><h4>Ricky Doe</h4></a>
+										<span>3 Reviews</span>
+									</div>
+									<button><i class="fas fa-user-plus"></i></button>
+								</div>
+							</div><!--suggestions-list end-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--my-account-tabs end-->

@@ -1,0 +1,31 @@
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+	<div class="container padding-bottom-3x mb-2 mt-5">
+	    <div class="row justify-content-center">
+	        <div class="col-lg-8 col-md-10">
+	            <div class="forgot">
+                <h2>Forgot your password?</h2>
+                <p>Change your password in three easy steps. This will help you to secure your password!</p>
+                <ol class="list-unstyled">
+                    <li><span class="text-primary text-medium">1. </span>Enter your email and password below.</li>
+                    <li><span class="text-primary text-medium">2. </span>Our system will send you a link to your email</li>
+                    <li><span class="text-primary text-medium">3. </span>Use the link to reset your password</li>
+                </ol>
+	            </div>
+              <form class="card mt-4">
+                <div class="form-group">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form_control",placeholder:"Enter your email" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.submit "Submit",class:"btn btn-primary btn-lg active" %>
+                </div>
+                <div class="form-group">
+                <%= link_to "Back to Login", signin_path %> 
+                </div>
+              <% end %>
+              </form>
+              </div>
+	        </div>
+	    </div>
+	</div>

@@ -8,6 +8,8 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -30,7 +32,16 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
-
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => '195b829e223b81',
+    :password => '13d9e8bb3af94a',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
+  }
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
