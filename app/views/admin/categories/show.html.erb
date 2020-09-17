@@ -20,7 +20,8 @@
           <th> Action </th>
         </tr>
       </thead>
-      <tbody>  
+      <tbody id="myTable">   
+      <input class="form-control" id="myInput" type="text" placeholder="Search.."> 
         <% @category.products.each_with_index  do |product, index| %>
         <%= render 'product', product: product, index: index %>
         <% end %>
@@ -28,3 +29,13 @@
     </table>
   </div>
 </div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

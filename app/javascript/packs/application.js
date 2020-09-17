@@ -2,7 +2,9 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-
+const chartkick = require("chartkick")
+require("chartkick")
+require("chart.js")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -26,8 +28,31 @@ document.addEventListener("turbolinks:load", () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+<<<<<<< HEAD
 
   $(document).ready(function() {
     $('#example').DataTable();
   });
   
+=======
+//= require jquery
+//= require jquery_ujs
+//= require_tree 
+
+
+(function() {
+  $(document).on('click', '.toggle-window', function(e) {
+    e.preventDefault();
+    var panel = $(this).parent().parent();
+    var messages_list = panel.find('.messages-list');
+
+    panel.find('.panel-body').toggle();
+    panel.attr('class', 'panel panel-default');
+
+    if (panel.find('.panel-body').is(':visible')) {
+      var height = messages_list[0].scrollHeight;
+      messages_list.scrollTop(height);
+    }
+  });
+})();
+>>>>>>> 7ec3416f381a57f84bf230a1fdf7fd080b794480

@@ -10,7 +10,7 @@
         <% end %>
       </div>
       <div class="logo-img">
-        <%= image_tag product.category.image %>
+        <%= image_tag product.category.image if product.category.image.attached? %>
       </div>
       <div class="top-text">
         <div class="heading">

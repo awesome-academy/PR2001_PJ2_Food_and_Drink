@@ -2,11 +2,20 @@ Rails.application.routes.draw do
   root 'homepages#home'
   namespace :admin do
     get 'home', to: 'homepages#index'
+    get 'chat', to: 'chat#index'
+    get 'search', to: 'homepages#search'
     resources :categories do 
       resources :products
     end
-    resources :products, only: [:index]
+    resources :products, only: [:index] 
     resources :toppings, except: [:update, :edit, :show]
+    resources :conversations, only: [:create] do
+      member do
+        post :close
+      end
+  
+      resources :messages, only: [:create]
+    end
     resources :orders, only: [:index]
   end
 
@@ -25,6 +34,9 @@ Rails.application.routes.draw do
   end
   resources :products, only:[:index]
   resources :products, only:[:show] do
+    member do
+     put "like" => "products#vote"
+    end
     resources :comments , only:[:index, :create]
   end
   resources :toppings, only:[:index]

@@ -6,15 +6,15 @@
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>150</h3>
-            <p>New Orders</p>
+            <h3><%= Category.all.count %></h3>
+            <p>Categories</p>
           </div>
           <div class="icon">
             <i class="ion ion-bag"></i>
           </div>
-          <a href="#" class="small-box-footer">More info 
-            <i class="fas fa-arrow-circle-right"></i>
-          </a>
+          <%= link_to admin_categories_path, class:"small-box-footer" do %> 
+            More info <i class="fas fa-arrow-circle-right"></i>
+          <% end %>
         </div>
       </div>
       <!-- ./col -->
@@ -38,7 +38,7 @@
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>44</h3>
+            <h3><%= User.all.count %></h3>
 
             <p>User Registrations</p>
           </div>
@@ -68,4 +68,26 @@
         </div>
       </div>
     </div>
+    </div>
+    <div>
+    <%= form_tag(admin_search_path, method: "get", remote: true, id: "search-form-chart") do %>
+       <%= select_tag "filter", options_for_select(['Day', 
+                                                    'Week', 
+                                                    'Month']), id: "select-period" %>
+       <%= submit_tag "search", id:'search_submit' ,style: 'display:none'%>
+    <% end %>
+  </div>
+    <div id="graph-container">
+    <%= render 'graph', data: @data %>
+    </div>
   </section>
+  <script>
+  $("#select-period").on("change", function(){
+    $.ajax({
+      type: "get",
+      url: "search",
+      data: {filter: $(this).val()},
+      dataType: "script",
+    })
+  })
+</script>

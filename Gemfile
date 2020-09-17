@@ -9,6 +9,8 @@ gem "rails", "~> 6.0.3", ">= 6.0.3.2"
 gem 'dotenv-rails' , require: 'dotenv/rails-now'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
+gem 'chartkick'
+
 
 # Use Puma as the app server
 gem "puma", "~> 4.1"
@@ -28,10 +30,14 @@ gem "jbuilder", "~> 2.7"
 gem "aws-sdk-s3", require: false
 gem 'pry'
 gem 'devise'
+gem 'faker'
+
+gem 'groupdate'
 gem 'kaminari'
 gem 'ransack'     
 gem 'bootstrap-kaminari-views'
 gem "paranoia"
+gem 'acts_as_votable'
 gem 'rails-i18n'
 # Use Active Storage variant
 # gem "image_processing", "~> 1.2"

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  acts_as_votable
+
   belongs_to :category
 
 

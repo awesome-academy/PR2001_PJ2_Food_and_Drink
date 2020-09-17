@@ -86,10 +86,12 @@
           <div class="like-comments">
             <ul>
               <li>
-                <span class="views" data-toggle="tooltip" data-placement="top" title="Likes">
+                <%= link_to like_product_path(@product), class:"like-btn" , method: :put, remote: :true do %>
+                <span class="views" data-toggle="tooltip" data-placement="top" title="Like">
                   <i class="fas fa-heart"></i>
-                  <ins>362</ins>
                 </span>
+                <% end %>
+                <span class="likes-count"><%= @product.get_upvotes.size %></span>
               </li>
               <li>
                 <span class="views" data-toggle="tooltip" data-placement="top" title="Comments">
