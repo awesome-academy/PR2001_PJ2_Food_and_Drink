@@ -63,12 +63,17 @@
             </div>
           </div>
           <div class="resto-review-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <span>4.5/5</span>
+            <div class="row">
+              <div class="small-2 large-2 columns">
+                <%= imdb_style_rating_for @movie, current_user%>
+              </div>
+              <br>
+              <div class="small-2 large-4 columns">
+                <% if current_user %>
+                  Visual Effects: <%= rating_for @movie, "visual_effects" %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
           </div>
@@ -141,6 +146,7 @@
                   <% end %>
                 <% end %>
                 <div class="main-pagination">
+                  <%= paginate @comments %>
                 </div>   
               </div>      
             </div>  

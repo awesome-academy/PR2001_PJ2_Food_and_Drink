@@ -2,4 +2,4 @@ $('#delete-cart-item').bind('ajax:success', function() {
   $(this).closest('tr').fadeOut(40);
 })
 $("#quantity-cart-item").html("<%= j render 'products/cart_item'%>")
-$("#cart-total-amount").html("$<%= current_cart.total_amount %>")
+$("#cart-total-amount").html("$<%= current_cart.caculate_total_amount.sum %>")

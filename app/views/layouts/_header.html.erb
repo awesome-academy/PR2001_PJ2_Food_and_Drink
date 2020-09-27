@@ -21,8 +21,9 @@
                 <li id="quantity-cart-item">
                   <%= link_to carts_path do %>
                     <i class="fas fa-shopping-cart"></i>
-                    Food Orders <span class="badge badge-pill badge-warning">
-                      <%= render 'products/cart_item' %>
+                    Food Orders 
+                    <span class="badge badge-pill badge-warning">
+                      <%= link_to "#{current_cart.cart_items.size}", carts_path  %>
                     </span>
                   <% end %>
                 </li>

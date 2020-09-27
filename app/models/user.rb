@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :comments
   has_many :orders
+  ratyrate_rater
+  ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
 end

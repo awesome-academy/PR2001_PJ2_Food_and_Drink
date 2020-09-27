@@ -29,8 +29,9 @@ gem "aws-sdk-s3", require: false
 gem 'pry'
 gem 'devise'
 gem 'kaminari'
-# gem "paranoia"
-gem 'bootstrap-kaminari-views' 
+gem 'ransack'     
+gem 'bootstrap-kaminari-views'
+gem "ratyrate"
 # Use Active Storage variant
 # gem "image_processing", "~> 1.2"
 # Reduces boot times through caching; required in config/boot.rb

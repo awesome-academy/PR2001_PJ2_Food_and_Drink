@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   root 'homepages#home'
   namespace :admin do
     get 'home', to: 'homepages#index'

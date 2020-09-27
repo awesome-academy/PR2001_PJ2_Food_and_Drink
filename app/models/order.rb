@@ -8,12 +8,11 @@ class Order < ApplicationRecord
 
     class << self
       def generate_order_code
-        code = SecureRandom.urlsafe_base64(10)
+        code = [*('A'..'Z')].sample(10).join
         
         while Order.find_by(order_code: code)
-          code = SecureRandom.urlsafe_base64(10)
+          code = [*('A'..'Z')].sample(10).join
         end
-        
         code
       end
     end
