@@ -1,3 +1,22 @@
+
+
+<% if user_signed_in? %>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Account </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+            <%= link_to "Profile", current_user, class:"dropdown-item"%>
+            <%= link_to "Setting", edit_user_registration_path, class:"dropdown-item" %>
+            <%= link_to "Logout", destroy_user_session_path,class:"dropdown-item", :method => :delete %>
+        </div>
+    </li> 
+    <% else %>
+    <li class="form-group">   
+        <a class="nav-link content="width=device-width, initial-scale=1" <%= link_to "Log in", signin_path %> </a>
+        <a class="nav-link content="width=device-width, initial-scale=1" <%= link_to "Sign Up", new_user_registration_path %> </a>
+    </li>
+<% end %> 
+
 <section class="block-preview">
   <div class="cover-banner" style="background-image: url(https://images3.alphacoders.com/922/922680.jpg)"></div>
   <div class="container">
@@ -16,6 +35,11 @@
             <div class="input-group-prepend">
               <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
             </div>
+            <input class="find-address skills" name="search" type="text" placeholder="Choose your food " />
+            <div class="input-group-prepend">
+              <div class="input-group-text-1"><i class="fas fa-utensils"></i></div>
+            </div>
+            <input class="find-resto skills" name="search" type="text" placeholder="Choose your drinks" />
             <input class="find-address skills" name="search" type="text" placeholder="Choose your location" />
             <div class="input-group-prepend">
               <div class="input-group-text-1"><i class="fas fa-utensils"></i></div>
@@ -107,6 +131,9 @@
     <div class="row">
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="work-item">
+        
+          <div class="work-text">
+            <h4>Choose Your Food </h4>
           <div class="work-img">
             <%= image_tag 'icon3.png' %>
           </div>
@@ -118,6 +145,8 @@
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="work-item">
+         <div class="work-text">
+          <h4> Food</h4>
           <div class="work-img">
            <%= image_tag 'icon4.png' %>
          </div>

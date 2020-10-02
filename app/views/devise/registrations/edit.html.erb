@@ -1,3 +1,126 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  	<section class="title-bar">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="left-title-text">
+					<h3>My Account</h3>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="right-title-text">  
+						<ul>
+            				<%= link_to "Home", root_path, class:"breadcrumb-item" %>	
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="all-profile-details">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-4 col-12">
+					<div class="left-tab-links">
+						<div class="nav nav-pills nav-stacked nav-tabs ui vertical menu fluid">
+							<a href="#edit-profile"  data-toggle="tab" class="item user-tab cursor-pointer active">Edit Profile</a>
+							<a href="#notification-setting" data-toggle="tab" class="item user-tab cursor-pointer">Notification Setting</a>
+						</div>						
+					</div>				
+				</div>
+				<div class="col-lg-6 col-md-8 col-12">
+					<div class="tab-content">
+						<div class="tab-pane active" id="edit-profile">
+							<div class="timeline">
+								<div class="tab-content-heading">
+									<h4>Profile Information</h4>
+									<a href="my_profile_dashbord.html"><i class="fas fa-angle-double-left"></i>Back to Profile</a>
+								</div>
+								<div class="edit-profile">
+									<form>
+                    <div class="form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :username, autofocus: true, autocomplete: "name",class:"form-control", placeholder:"Enter your new name" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :Birth%>
+                      <%= f.date_field :birth, class: 'form-control'%>
+                    </div>
+                      <div class="form-group radio form-check-inline">
+                        <%= f.label :Men, class: "form-check-label"%>
+                        <%= f.radio_button :gender, "men", class:"form-check-input"%>
+                        <%= f.label :Women, class: "form-check-label"%>
+                        <%= f.radio_button :gender, "women", class:"form-check-input"%>
+                        <%= f.label :Other, class: "form-check-label"%>
+                        <%= f.radio_button :gender, "other", class:"form-check-input"%>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+                    </div>
+
+                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                    <% end %>
+
+                                      
+                    <div class="from-group">
+                      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                      <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+                      <% if @minimum_password_length %>
+                        <br />
+                        <em><%= @minimum_password_length %> characters minimum</em>
+                      <% end %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :password_confirmation %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+                    </div>
+
+                      <div class="form-group">
+                      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                      <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+                    </div>
+                  <% end %>
+										<button type="submit" class="change-btn btn-link">Save Changes</button>
+									</form>
+								</div>
+							</div>							
+						</div>						
+						<div class="tab-pane" id="notification-setting">
+							<div class="profile-about">
+								<div class="tab-content-heading">
+									<h4>Notification Setting</h4>
+									<a href="my_profile_dashbord.html"><i class="fas fa-angle-double-left"></i>Back to Profile</a>
+								</div>
+								<div class="noti-setting">
+									<div class="noti-all-st">
+										<ul>
+											<li>
+                        <div class="noti-st">
+                          <div class="noti-left-t">
+                            Change Notifications
+                          </div>
+                          <div class="noti-right-b">
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="customSwitch4">
+                              <label class="custom-control-label" for="customSwitch4"></label>
+                            </div>
+                          </div>
+                        </div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>																																	
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
