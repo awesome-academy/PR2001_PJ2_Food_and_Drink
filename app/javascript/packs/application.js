@@ -7,11 +7,14 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require('admin-lte');
+require('datatables.net-bs4')
+require('admin-lte')
 
 import 'bootstrap';
 import '../stylesheets/application';
 import "@fortawesome/fontawesome-free/js/all";
+import $ from 'jquery';
+global.$ = jQuery;
 
 
 document.addEventListener("turbolinks:load", () => {
@@ -23,3 +26,8 @@ document.addEventListener("turbolinks:load", () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+  $(document).ready(function() {
+    $('#example').DataTable();
+  });
+  
