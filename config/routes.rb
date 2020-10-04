@@ -48,6 +48,10 @@ Rails.application.routes.draw do
   end
   resources :carts, only:[:create, :index]
   resources :cart_items, only:[:create, :update, :destroy]
+<<<<<<< HEAD
   resources :orders ,except:[:edit, :update]
+=======
+  resources :order
+>>>>>>> 6ec0cac... build cart 19/9
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

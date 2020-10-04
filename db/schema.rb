@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_111850) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
