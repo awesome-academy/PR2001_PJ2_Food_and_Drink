@@ -36,7 +36,7 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="tab-content">
-						<div class="tab-pane active" id="timeline">
+						<div class="tab-pane <%= params.blank? ? 'active' : '' %>" id="timeline">
 							<div class="profile-about">
 								<div class="tab-content-heading">
 									<h4>Timeline</h4>
@@ -103,7 +103,7 @@
 										<div class="col-lg-12 col-md-12 col-12">
 											<div class="my-checkout">
 												<div class="table-responsive">
-												</div>
+												</div>active
 											</div>
 										</div>
 									</div>
@@ -160,7 +160,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="tab-pane" id="order-history">
+						<div class="tab-pane <%= params[:order_history].present? ? 'active' : '' %>" id="order-history">
 							<div class="profile-about">
 								<div class="tab-content-heading">
 									<h4> Order History </h4>

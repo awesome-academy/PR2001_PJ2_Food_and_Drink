@@ -19,10 +19,8 @@ class OrdersController < ApplicationController
     @order.order_code = Order.generate_order_code
     @order.confirm!
     if @order.save
-
-      ([current_user]).each do |user|
-        Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @order)
-      end
+      user = current_user
+      Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @order)
       OrderMailer.with(order: @order).new_order_email.deliver_later
       session[:cart_id] = nil
       flash[:success] = 'User buyed success'
