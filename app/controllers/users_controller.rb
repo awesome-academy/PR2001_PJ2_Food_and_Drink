@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @orders = current_user.orders
-    @products = current_cart.products
+    @orders_cancel = @orders.with_deleted
+
   end 
 end
   

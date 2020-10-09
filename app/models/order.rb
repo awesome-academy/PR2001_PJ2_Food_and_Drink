@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    belongs_to :cart, optional: true, dependent: :destroy
+    belongs_to :cart, optional: true
     belongs_to :address,  optional: true
     belongs_to :user
     

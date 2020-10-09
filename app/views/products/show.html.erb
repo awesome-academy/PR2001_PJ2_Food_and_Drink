@@ -93,11 +93,8 @@
                 <% end %>
                 <span class="likes-count"><%= @product.get_upvotes.size %></span>
               </li>
-              <li>
-                <span class="views" data-toggle="tooltip" data-placement="top" title="Comments">
-                  <i class="fas fa-comment-alt"></i>
-                  <ins><%=@comments.count%></ins>
-                </span>
+              <li class="size-comment">
+                <%= render 'comment_size' %>
               </li>
               <li>
                 <div class="btn-group social-share">
@@ -137,20 +134,7 @@
                     <% end %>
                   </div>
                 </div>
-                <% if @comments.blank? %>
-                <div class="main-comments">
-                  <div class="comment-1">
-                    <h3>No comment for this product</h3>
-                  </div>
-                </div>
-                <% else %>
-                  <% @comments.each do |comment|%>
-                    <%= render 'comment', comment: comment  %>
-                  <% end %>
-                <% end %>
-                <div class="main-pagination">
-                  <%= paginate @comments %>
-                </div>   
+              <%= render 'all_comment' %>
               </div>      
             </div>  
           </div>

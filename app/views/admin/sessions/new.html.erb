@@ -1,13 +1,13 @@
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <b>Admin</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-     <%= form_for :session, url: admin_home_path do |f| %>
+     <%= form_for :session, url: admin_login_path do |f| %>
         <div class="input-group mb-3">
             <%= f.email_field :email, class: "form-control", placeholder:"Email" %>
             <div class="input-group-append">

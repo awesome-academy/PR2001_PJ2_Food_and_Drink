@@ -5,6 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+2058.times do |n|
+    name = Faker::Name.name
+    email = "example-#{n+1}@gmail.com"
+    password = "password"
+    birth = "2000-11-11"
+    User.create!(
+    name: name,
+    email: email,
+    password: password,
+    password_confirmation: password,
+    birth: birth,
+    gender: "women"
+)
+end
 begin_date = 2.years.ago
 end_date = Date.today
 

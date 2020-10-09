@@ -1,6 +1,6 @@
 <div class="col-md-6">
   <div class="address-list">
-    <div class="address-item <%=address.id == @address_first.id ? 'active': ''%>">
+    <div class="address-item <%= address.id == @address_first.try(:id) ? 'active': ''%>">
       <b><%= address.user_name%></b>
       <p>Address: <%= address.stress+'-'+address.district+'-'+address.wards+'-'+address.province%></p>
       <p> Viet Nam</p>
@@ -9,7 +9,7 @@
         <%= hidden_field_tag "address_id[]", address.id, class:"form-check-input"%>
         <%= submit_tag "Choose this address", class:"btn btn-secondary" %>
       <% end %>
-      <%= link_to "Delete",user_address_path(current_user.id, address), method: :delete , remote: true, class:"btn btn-light", method: :get %>
+      <%= link_to "Delete", user_address_path(current_user.id,address.id), method: :delete , remote: true, class:"btn btn-light ", id:"delete-address"%>
     </div>
   </div>
 </div>

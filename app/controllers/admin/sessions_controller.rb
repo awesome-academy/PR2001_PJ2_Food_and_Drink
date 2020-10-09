@@ -1,6 +1,6 @@
-class Admin::SessionsController < Admin::BaseController
+class Admin::SessionsController< Admin::BaseController
+  include Admin::SessionsHelper
   def new; end
-
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])

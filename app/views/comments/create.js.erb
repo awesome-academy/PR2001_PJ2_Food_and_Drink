@@ -1,1 +1,3 @@
-$('.tab-pane').append("<%= j render 'products/comment', comment: @comment %>")
+$('.all-comment').html("<% j render 'products/all_comment' %>")
+$('.tab-content').append("<%= j render 'products/comment', comment: @comment %>")
+$('.size-comment').html("<%= j render 'products/comment_size' %>")

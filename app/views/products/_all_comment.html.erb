@@ -1,0 +1,16 @@
+                <div class="all-comment">
+                  <% if @comments.blank? %>
+                    <div class="main-comments">
+                      <div class="comment-1">
+                        <h3>No comment for this product</h3>
+                      </div>
+                    </div>
+                  <% else %>
+                      <% @comments.each do |comment|%>
+                        <%= render 'comment', comment: comment  %>
+                      <% end %>
+                      <div class="main-pagination">
+                        <%= paginate @comments %>
+                      </div> 
+                  <% end %>  
+                </div>

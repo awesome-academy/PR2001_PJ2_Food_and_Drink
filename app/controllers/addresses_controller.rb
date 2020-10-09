@@ -19,13 +19,14 @@ class AddressesController < ApplicationController
       end
     end 
   end
-  def edit
-  end
-  def update
-      
-  end
-  def delete
-      
+  def destroy
+    @address = current_user.addresses.find params[:id]
+    @address.destroy
+    respond_to do |format|
+      format.js
+      format.html {redirect_to admin_addresses_path }
+      format.json { head :no_content }
+    end
   end
   private 
   def address_params

@@ -140,7 +140,7 @@
 												<div class="dp-detail">
 													<h6>Gender</h6>
 													<p><%= current_user.gender %></p>
-												</div>
+												</div> @orders_cancel
 											</li>
 											<li>
 												<div class="dp-detail">
@@ -181,7 +181,7 @@
 															</tr>
 														</thead>
 														<tbody>
-															<% @orders.each do |order|%>
+															<%  @orders_cancel.each do |order|%>
 																<tr>
 																	<td><%= order.order_code %></td>
 																	<td><%= order.created_at.to_date%></td>
