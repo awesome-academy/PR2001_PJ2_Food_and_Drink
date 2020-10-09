@@ -4,54 +4,45 @@
       <h3>Địa chỉ giao hàng</h3>
       <b>Chọn địa chỉ có săn bên dưới:</b>
     </div>
-    <% @addresses.each do |address|%>
-      <div class="col-md-6">
-        <div class="address-list">
-          <div class="address-item ">
-            <b><%= address.user_name%></b>
-            <p>Address: <%= address.stress+'-'+address.district+'-'+address.wards+'-'+address.province%></p>
-            <p> Viet Nam</p>
-            <p>Phone Number: 0<%=address.numberphone%></p>
-            <%= form_tag new_order_path,class:"form-address", method: :get do %>
-              <%= hidden_field_tag "address_id[]", address.id, class:"form-check-input"%>
-              <%= submit_tag "Choose this address", class:"btn btn-secondary" %>
-            <% end %>
-            <%= link_to "Delete",user_address_path(current_user.id, address), method: :delete , remote: true, class:"btn btn-secondary", method: :get %>
-          </div>
-        </div>
-      </div>
-    <% end %> 
-    <p>Do you want to add an other address?<b><span id="create-address">Add new address</span>
-    </b></p>
+    <div class="row add-address">
+      <% @addresses.each do |address|%>
+        <%= render 'address', address: address %>
+      <% end %> 
+    </div>  
+    <p>Do you want to add an other address?
+      <b>
+        <span id="create-address">Add new address</span>
+      </b>
+    </p>
   </div>
   <div class="new-address">
     <div class="form-container">
       <%= form_for current_user.addresses.build, url: user_addresses_path(current_user.id), html: {class: 'form-adress' }, remote:true do |f|%>
-        <div class="form-item">
-          <label>Full Name</label>
-          <%= f.text_field :user_name, class:"input-1", placeholder:"Enter name"%>
+        <div class="form-inline">
+          <label  class="mr-sm-2">Full Name:</label>
+          <%= f.text_field :user_name, class:"form-control mb-2 mr-sm-2 input-1", placeholder:"Enter name"%>
         </div>
-        <div class="form-item">
-          <label>Phone number</label>
-          <%= f.text_field :numberphone, class:"input-2",placeholder:"Enter phone number"%>
+        <div class="form-inline">
+          <label  class="mr-sm-2">Phone number:</label>
+          <%= f.text_field :numberphone, class:"form-control mb-2 mr-sm-2 input-2",placeholder:"Enter phone number"%>
         </div>
-        <div class="form-item">
-          <label>Province</label>
-          <%= f.text_field :province, class:"input-6",placeholder:"Enter province"%>
+        <div class="form-inline">
+          <label class="mr-sm-2">Province</label>
+          <%= f.text_field :province, class:"form-control mb-2 mr-sm-2 input-3",placeholder:"Enter province"%>
         </div>
-        <div class="form-item">
-        <label>Wards</label>
-          <%= f.text_field :wards, class:"input-3",placeholder:"Enter wards"%>
+        <div class="form-inline">
+        <label class="mr-sm-2">Wards</label>
+          <%= f.text_field :wards, class:"form-control mb-2 mr-sm-2 input-4",placeholder:"Enter wards"%>
         </div>
-        <div class="form-item">
-        <label>District</label>
-          <%= f.text_field :district, class:"input-4",placeholder:"Enter district"%>
+        <div class="form-inline">
+        <label class="mr-sm-2">District</label>
+          <%= f.text_field :district, class:"form-control mb-2 mr-sm-2 input-5",placeholder:"Enter district"%>
         </div>
-        <div class="form-item">
-        <label>Stress</label>
-          <%= f.text_field :stress, class:"input-5",placeholder:"Enter stress"%>
+        <div class="form-inline">
+          <label class="mr-sm-2">Stress</label>
+          <%= f.text_field :stress, class:"form-control mb-2 mr-sm-2 input-6",placeholder:"Enter stress"%>
         </div>
-        <div class="form-item">
+        <div class="form-inline">
           <%= f.submit "Add address", class:"btn btn-primary"%>
         </div>
       <% end %>

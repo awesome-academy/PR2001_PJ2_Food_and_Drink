@@ -1,0 +1,26 @@
+#list__category{
+
+  .category__item{
+    text-decoration: none;
+  }
+  .nav-item {
+    margin-left: 30px;
+  }
+  .avatar img{
+    border-radius: 50%;
+    max-width: 58px;
+    box-shadow: 2px 2px 9px 1px #ececec;
+  }
+  .nav-item b:hover{
+    color: chocolate;;
+  }
+  .nav-item b {
+    color: black;
+  }
+  .product-item img{
+    border-radius: 50%;
+    height: 20em;
+    max-height: 21em;
+    margin-top: 2em;
+  }
+}

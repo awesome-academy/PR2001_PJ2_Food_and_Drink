@@ -6,13 +6,13 @@
         <div class="col-lg-5 col-md-6">
           <div class="subscribe-newsletter">
             <div class="sub-text">
-              <p>Connect with us for update and offers.</p>
+              <p><%= t(".sub_text")%></p>
             </div>
             <form>
-              <input class="input-subscribe" name="newsletter" type="text" placeholder="Enter your email address">
+              <input class="input-subscribe" name="newsletter" type="text" placeholder= " <%= t(".sub_text1")%> ">
               <div class="subscribe-btn">
                 <div class="s-n-btn">
-                  <button class="newsletter-btn btn-link">Subscribe Now</button>
+                  <button class="newsletter-btn btn-link"><%= t(".new_letter")%></button>
                 </div>
               </div>
             </form>
@@ -23,7 +23,7 @@
             <form method="post" enctype="multipart/form-data" id="form-language">
               <div class="btn-group open">
                 <button class="lang-btn l-btn-link dropdown-toggle-no-caret" data-toggle="dropdown" aria-expanded="true">
-                  <i class="fas fa-globe"></i><span class="hidden-xs">English</span><i class="fas fa-caret-down"></i>
+                  <i class="fas fa-globe"></i><span class="hidden-xs"><%= t(".language")%></span><i class="fas fa-caret-down"></i>
                 </button>
                 <ul class="dropdown-menu">
                   <li><%= link_to "English", locale:"en" %></li>
@@ -44,40 +44,36 @@
             <%= image_tag 'logo1.jpg',class:"logo"  %>
           <% end %>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum leo at finibus ornare. Aliquam gravida condimentum neque, vel ultrices purus dignissim a. </p>
+        <p><%= t(".text")%> </p>
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="link-title">
-          <h4>About Natto</h4>
+          <h4><%= t(".title")%></h4>
           <ul class="links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="our_blog.html">Blog</a></li>
-            <li><a href="#">Developers</a></li>
-            <li><a href="#">Mobile Apps</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html"><%= t(".about")%></a></li>
+            <li><a href="#"><%= t(".about1")%></a></li>
+            <li><a href="our_blog.html"><%= t(".about2")%></a></li>
+            <li><a href="#"><%= t(".about3")%></a></li>
+            <li><a href="#"><%= t(".about4")%></a></li>
+            <li><a href="contact.html"><%= t(".about5")%></a></li>
           </ul>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <div class="link-title">
-          <h4>Business</h4>
+          <h4><%= t(".title2")%></h4>
           <ul class="links">
-            <li><a href="add_restaurant.html">Add a Restaurant</a></li>
-            <li><a href="#">Buniess Order Guidelines</a></li>
-            <li><a href="#">Orders</a></li>
-            <li><a href="#">Book</a></li>
-            <li><a href="#">Trace</a></li>
-            <li><a href="#">Advertise</a></li>
+            <li><a href="add_restaurant.html"><%= t(".restaurant")%></a></li>
+            <li><a href="#"><%= t(".guild")%></a></li>
+            <li><a href="#"><%= t(".Ads")%></a></li>
           </ul>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <div class="link-title">
-          <h4>Partner With Us</h4>
+          <h4><%= t(".Partner")%></h4>
           <ul class="links">
-            <li><a href="add_restaurant.html">For Restaurants</a></li>
-            <li><a href="add_driver.html">For Driver</a></li>
+            <li><a href="add_restaurant.html"><%= t(".Partner2")%></a></li>
           </ul>
           <div class="social-btns">
             <a href="#">
@@ -106,9 +102,9 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <div class="privacy-terms">
             <ul>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
-              <li><a href="#">Sitemap</a></li>
+              <li><a href="#"><%= t(".Pr")%></a></li>
+              <li><a href="#"><%= t(".Pr1")%></a></a></li>
+              <li><a href="#"><%= t(".Pr2")%></a></li>
             </ul>
           </div>
         </div>
@@ -125,7 +121,7 @@
       <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="copyright-text">
-            <i class="far fa-copyright"></i>Copyright 2019 <a href="index.html">Natto</a> by Gambol. All Rights Reserved.
+            <i class="far fa-copyright"></i><%= t(".Pr3")%><a href="index.html"></a>
           </div>
         </div>
       </div>

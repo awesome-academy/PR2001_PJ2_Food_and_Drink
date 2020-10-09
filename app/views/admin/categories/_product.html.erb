@@ -7,13 +7,13 @@
   <td><%= product.price %></td>
   <td><%= product.kind %></td>
   <td>
-    <%= link_to admin_category_product_path(@category,product) do %>
+    <%= link_to "#" do %>
       <i class='fas fa-edit' style='color: black'></i>
     <% end %>
-    <%= link_to edit_admin_category_product_path(@category, product) do %>
+    <%= link_to "#" do %>
       <i class='fas fa-wrench' style='color: black'></i>
     <% end %>
-    <%= button_to admin_category_product_path(@category, product), method: :delete, data: {confirm: 'Are you sure?', remote: true }, class:"delete-product" do %>
+    <%= link_to "#", method: :delete, data: {confirm: 'Are you sure?', remote: true }, class:"delete-product" do %>
       <i class='far fa-trash-alt' style='color: black'></i>
     <% end %>
   </td>

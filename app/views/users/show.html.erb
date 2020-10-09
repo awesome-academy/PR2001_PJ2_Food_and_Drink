@@ -30,7 +30,6 @@
 							<a href="#my-orders" data-toggle="tab" class="item user-tab cursor-pointer">My Orders</a>
               <a href="#review" data-toggle="tab" class="item user-tab cursor-pointer">Review</a>																																		
 							<a href="#order-history" data-toggle="tab" class="item user-tab cursor-pointer">Order History</a>	
-              <a href="#how-to-order" data-toggle="tab" class="item user-tab cursor-pointer">How  to order?</a>
 						</div>						
 					</div>				
 				</div>
@@ -170,7 +169,8 @@
 										<div class="col-lg-12 col-md-12 col-12">
 											<div class="my-checkout">
 												<div class="table-responsive">
-													<table class="table">
+                        <div class="container">
+													<table id="data-table" class="table">
 														<thead>
 															<tr>
 																<th>Code Order</th>
@@ -186,7 +186,7 @@
 																	<td><%= order.order_code %></td>
 																	<td><%= order.created_at.to_date%></td>
                                   <td>
-                                    <% order.cart.products.each do |product| %>
+                                    <% order.cart.products.with_deleted.each do |product| %>
 																	    <%= product.name_product + ',' %>
                                     <% end %>
                                   </td>
@@ -196,6 +196,7 @@
 															<% end %>
 														</tbody>
 													</table>
+                        </div>
 												</div>
 											</div>
 										</div>
@@ -203,25 +204,12 @@
 								</div>
 							</div>
 						</div>	
-            <div class="tab-pane" id="how-to-order">
-							<div class="profile-about">
-								<div class="tab-content-heading">
-									<h4>How to order?</h4>
-								</div>
-								<div class="my-orders">
-									<div class="row">
-										<div class="col-lg-12 col-md-12 col-12">
-											<div class="my-checkout">
-												<div class="table-responsive">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>					
-					</div>
-				</div>
-			</div>
 		</div>
 	</section>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(document).ready(function() {
+      $('#data-table').dataTable()
+    });
+  });
+</script>

@@ -44,8 +44,8 @@
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 1em;
-    max-height: 25em;
-    height: 24em;
+    max-height: 31em;
+    height: 29em;
   }
   .form-container form input{
     margin-top: 1em;
@@ -58,22 +58,21 @@
     margin-left: 2em;
   }
   .input-3{
-    margin-left: 96px;
+    margin-left: 83px;
   }
   .input-4{
-    margin-left: 90px;
+    margin-left: 104px;
   }
   .input-5{
     margin-left: 96px;
   }
   .input-6{
-    margin-left: 76px;
+    margin-left: 102px;
   }
-  .form-item .btn-primary{
-    margin-left: 149px;
+  .form-inline .btn-primary{
+    margin-left: 100px;
   }
   .address-list{
-    border: 1px solid #cac6c6;
     width: 32em;
     height: 9em;
   }
@@ -83,7 +82,17 @@
   }
   .address-item {
     margin-left: 15px;
+    border: 1.3px solid black;
+    padding: 4px;
+    margin-top: 16px;
   }
   .address-item .form-address{
     display: inline-block;
+  }
+  .address-list .active{
+    border-style: dotted;
+    border-color: green;
+  }
+  .address-list .active .btn-secondary{
+    background-color: rgb(2, 159, 209);
   }

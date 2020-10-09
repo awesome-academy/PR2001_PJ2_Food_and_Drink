@@ -6,7 +6,7 @@
         <div class="login-container">
           <div class="row">     
             <div class="col-lg-12 col-md-12 col-12">
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|  %>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), id:"registration-form") do |f|  %>
                 <%= render "devise/shared/error_messages", resource: resource %>
                 <div class="login-form">
                   <div class="login-logo">  
@@ -67,3 +67,51 @@
     </div>      
   </div>
 </section>
+<script>
+$(document).ready(function(){
+    $("#new_user").validate({
+    onfocusout: false,
+		onkeyup: false,
+    onclick: false,
+    rules: {
+      "user[name]" :{
+        required: true,
+				maxlength: 50
+      },
+      "user[email]" :{
+        required: true,
+        email: true
+      },
+      "user[password]" :{
+        required: true,
+				minlength: 6
+      },
+      "user[password_confirmation]" :{
+        required: true,
+				minlength: 10
+      },
+      "user[gender]" :{
+        required: true,
+      },
+      "user[birth]" :{
+        required: true,
+      }
+    },
+    messages: {
+			"user[name]": {
+				required: "User name can't blank",
+				maxlength: "Hãy nhập   ký tự"
+			},
+			"user[password]": {
+				required: "Password can't blank",
+				minlength: "Hãy nhập ít nhất 6 ký tự"
+			},
+			"user[password_confirmation]": {
+				equalTo: "Password to match",
+				minlength: "Hãy nhập ít nhất 6 ký tự"
+			}
+		}
+  });
+});
+
+</script>

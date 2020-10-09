@@ -1,14 +1,62 @@
 <div class="card">
   <div class="card-header">
-    <h2 >Products</h2>
-    <%= link_to new_admin_category_product_path(@category), class:"btn btn-warning" do %>
-      Create Product <i class='fas fa-pencil-alt'></i>
-    <% end %>
+    <h2 >Products Belongs To <%=@category.name%></h2>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myTable">
+    Create Product
+    </button>
+    <div class="modal fade" id="myTable" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button> 
+          </div>
+          <%= form_for [:admin,@category.products.build] do |f|%>
+            <div class="modal-body">
+              <div class="container">
+                <div class="card card-warning">
+                  <div class="card-header">
+                    <h3 style="text-align: center;">Create Product</h3>
+                  </div>
+                      <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label>Name Product</label>
+                      <%= f.text_field :name_product , placeholder:"Enter name product", class:"form-control",required: 'true' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Information</label>
+                      <%= f.text_area :information ,  placeholder:"Enter desciption", class:"form-control",required: 'true'%>
+                    </div>
+                    <div class="form-group">
+                      <label>Price</label>
+                      <%= f.text_field :price , placeholder:"Enter price product", class:"form-control" ,required: 'true'%>
+                    </div>
+                    <div class="form-group">
+                      <label>Type</label>
+                      <%= f.select :kind, Product.kinds.keys ,{}, { class: 'form-control'}%>
+                    </div>
+                    <%= f.hidden_field :category_id, value: @category.id %>
+                    <h5>Add images for product</h5>
+                    <div class="custom-file">
+                      <%= f.file_field :images , multiple: true %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <%= f.submit "Create", class:"btn btn-outline-warning"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- /.card-header -->
 
   <div class="card-body">
-    <table class="table table-hover">
+    <table id="data-table" class="table">
       <thead>
         <tr>
           <th>ID</th>
@@ -20,8 +68,7 @@
           <th> Action </th>
         </tr>
       </thead>
-      <tbody id="myTable">   
-      <input class="form-control" id="myInput" type="text" placeholder="Search.."> 
+      <tbody>   
         <% @category.products.each_with_index  do |product, index| %>
         <%= render 'product', product: product, index: index %>
         <% end %>
@@ -29,13 +76,10 @@
     </table>
   </div>
 </div>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(document).ready(function() {
+      $('#data-table').dataTable()
     });
   });
-});
 </script>

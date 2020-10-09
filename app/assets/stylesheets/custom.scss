@@ -11,74 +11,14 @@
   .logo{
     width: 4em;
   }
-  .nav-item .dropdown-menu .row .col-md-3 .dropdown-item{
-    font-size: 13px;
+  .all-meal:hover {
+    border: 1px solid #777;
+  }
+  .fix-size-for-carousel{
+    width:42em;
   }
   .menu-right{
     background-color: white !important;
-  }
-  .block-preview{
-    height: 30em;
-  }
-  .container .row .col-lg-4{
-    margin-top: 4%;
-  }
-  .items{
-    margin-top: 1em;
-  }
-  .carousel{
-    width: 2em; 
-  }
-  .all-meal{
-    height: 22em;
-    width: 17em;
-  }
-  .partner-bottom{
-    width: 16em;
-  }
-  .carousel-icon{
-    width: 2em;
-  }
-  .carousel{
-    width: 50em;
-  }
-  .logo-img img{
-    width: 58% !important;
-  }
-  .fix-size-for-carousel{
-    width: 49em;
-  }
-  .fix-size-category{
-    width: 4em;
-  }
-  .right-side{
-    margin-left: 2em !important;
-    margin-top: -50px !important;
-  }
-  .table-hover tbody img{
-    width: 60px;
-  }
-  .quantity{
-    width: 63px !important;
-  }
-  .tital{
-    padding: 20px;
-  }
-  .public-1{
-    margin: 4px;
-  } 
-  .cart{
-    padding: 20px;
-  }
-  .cart .public{
-    padding: 17px;
-  }
-  .col-md-9 b{
-    font-size: 13px;
-  }
-  .col-md-3 p{
-    text-align: center;
-    font-size: 13px;
   }
   .pagination , .pagination span.gap {
     float: left;
@@ -127,6 +67,17 @@
         border: none;
     }
 }
+  .table-hover td img{
+    width: 42px;
+  }
+  .meal-icon img{
+    border-radius: 50%;
+    box-shadow: 2px 2px 9px 1px #ececec;
+    height: 46px !important;
+  }
+  .quick-searches{
+    margin-top: 3em;
+  }
   footer{
     margin-top: 2em;
   }

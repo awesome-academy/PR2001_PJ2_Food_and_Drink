@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root 'homepages#home'
   namespace :admin do
+    get '/', to: 'sessions#new'
     get 'home', to: 'homepages#index'
     get 'chat', to: 'chat#index'
     get 'search', to: 'homepages#search'
+    
+    resources :sessions, only: %i[new create destroy]
     resources :categories do 
       resources :products
     end
@@ -32,7 +35,11 @@ Rails.application.routes.draw do
     get 'edit', to: 'devise/registrations#edit'
     delete 'logout', to: 'devise/sessions#destroy'
   end
-  resources :products, only:[:index]
+  resources :products, only:[:index] do
+    collection do
+      get 'search'
+    end
+  end
   resources :products, only:[:show] do
     member do
      put "like" => "products#vote"

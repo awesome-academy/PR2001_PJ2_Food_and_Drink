@@ -1,11 +1,7 @@
 <div class="card">
-  <div class="card-header">
-    <h2 >Products</h2>
-  </div>
-  <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <!-- /.card-header -->
   <div class="card-body">
-    <table class="table table-hover">
+    <table id="data-table" class="table">
       <thead>
         <tr>
           <th>ID</th>
@@ -17,7 +13,6 @@
           <th> Action </th>
         </tr>
       </thead>
-      <tbody id="myTable">  
       <tbody>  
         <% @products.each_with_index  do |product, index| %>
         <%= render 'product', product: product, index: index %>
@@ -26,13 +21,10 @@
     </table>
   </div>
 </div>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(document).ready(function() {
+      $('#data-table').dataTable()
     });
   });
-});
 </script>

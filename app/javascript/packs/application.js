@@ -10,13 +10,17 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('admin-lte');
+require('datatables.net-bs4')
 require("packs/notifications.js.coffee")
 
 
 import 'bootstrap';
 import '../stylesheets/application';
 import "@fortawesome/fontawesome-free/js/all";
-
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
+import $ from 'jquery';
+global.$ = jQuery;
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
@@ -30,8 +34,7 @@ document.addEventListener("turbolinks:load", () => {
 //= require jquery
 //= require jquery_ujs
 //= require_tree 
-
-
+//= require owl.carousel
 (function() {
   $(document).on('click', '.toggle-window', function(e) {
     e.preventDefault();

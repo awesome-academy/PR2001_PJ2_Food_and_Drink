@@ -1,0 +1,18 @@
+<div class="container">
+  <nav class="navbar navbar-expand-sm justify-content-center ">
+    <ul class="navbar-nav">
+			<% @categories.each do |category|%>
+				<li class="nav-item ">
+					<%= link_to category_path(category.id), class:"category__item" do %>
+            <div class="header-category">
+              <div class="avatar"><%= image_tag(category.image, alt:"") if category.image.attached?%></div>
+              <div class="item">
+                <b><%= category.name%></b>
+              </div>
+            </div>
+					<% end %>
+      	</li>
+			<% end %>
+    </ul>
+  </nav>
+</div>

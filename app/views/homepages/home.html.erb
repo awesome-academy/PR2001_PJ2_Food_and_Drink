@@ -28,79 +28,6 @@
     </div>
   </div>
 </section>
-<section class="browse-places">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h3> Browse Places </h3>
-      </div>
-    </div>
-  </div>
-  <div class="container items">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="owl-carousel">
-          <div class="item">
-            <%= image_tag 'brower_coffee.png', class:'carousel-icon' %>
-          </div>
-          <div class="place">
-            <h4>Coffee More</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="owl-carousel">
-          <div class="item">
-            <%= image_tag 'brower_drink.png', class:'carousel-icon' %>
-          </div>
-          <div class="place">
-            <h4>Drink & Nightkise</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="owl-carousel">
-          <div class="item">
-            <%= image_tag 'brower_cake.png', class:'carousel-icon' %>
-          </div>
-          <div class="place">
-            <h4>Desserts & Cakes</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="owl-carousel">
-          <div class="item">
-            <%= image_tag 'brower_open.png', class:'carousel-icon' %>
-          </div>
-          <div class="place">
-            <h4>Newly Opened</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="owl-carousel">
-          <div class="item">
-            <%= image_tag 'brower_even.png', class:'carousel-icon' %>
-          </div>
-          <div class="place">
-            <h4>Upcoming Event</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="owl-carousel">
-          <div class="item">
-            <%= image_tag 'brower_gps.png', class:'carousel-icon' %>
-          </div>
-          <div class="place">
-            <h4>Near by</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <!--how-to-work start-->
 <section class="how-to-work">
   <div class="container">
@@ -144,37 +71,86 @@
     <div class="row">
       <div class="col-md-12">
         <div class="new-heading">
-          <h1> Order Food Online In Your Area </h1>
+          <h1><%= t ".worktext3"%></h1>
         </div>
         <div class="your-location">
           <% if signed_in? %>
-            
+          
           <% end %>
         </div>
         <div class="all-items">
           <div class="search col-lg-4 col-md-6 col-sm-12 col-xs-12">
-            <form>
-              <input class="search-location" name="search" type="search" placeholder="Enter Your Location" />
+            <%= form_tag products_path,:method => :get do %>
+              <%= text_field_tag :search, params[:search], class:"search-location",placeholder:"What kind of do want?" %>
               <div class="icon-btn">
                 <div class="cross-icon">
-                  <i class="fas fa-crosshairs"></i>
+                    <i class="fas fa-crosshairs"></i>
                 </div>
                 <div class="s-m-btn">
-                  <button class="search-meal-btn btn-link">Search</button>
+                    <%= submit_tag "search", class:"search-meal-btn btn-link"%>
                 </div>
               </div>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
       <% @products.each do |product|%>
-        <%= render 'product', product: product %>
+      <%= render 'product', product: product %>
       <% end %>
-      <div class="meal-btn">
-        <a href="#" class="m-btn btn-link">Show All</a>
+    </div>
+    <div class="meal-btn">
+      <%= link_to "Show All", products_path, class:"m-btn btn-link"%>
+    </div>
+  </div>
+</section>
+<section class="quick-searches">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="new-heading">
+          <h1> Quick Searches </h1>
+        </div>
+        <div class="sub-title">
+          Discover Restauranrs By Type of Meal
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-8">
+        <div class="all-meals">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-8">
+              <div class="owl-carousel owl-theme">
+                <% @categories.each do |category|%>
+                  <div class="item">
+                    <%= link_to category_path(category.id) do %>
+                      <div class="meal-icon">
+                        <%=image_tag category.image%>
+                      </div>
+                      <div class="meal-title">
+                        <%= category.name%>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<script>
+  $(document).ready(function() {
+    $(".owl-carousel").owlCarousel({
+      center:false,
+      items:6,
+      loop:true,
+      autoplay:true,
+      autoplayTimeout:1000,
+    });
+  });
+</script>

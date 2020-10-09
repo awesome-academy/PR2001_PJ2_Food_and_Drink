@@ -19,7 +19,7 @@ class Cart < ApplicationRecord
     elsif a >= 35
       a * 2/100
     else
-      a
+      a * 0
     end
   end
   def total_price_after_coupons

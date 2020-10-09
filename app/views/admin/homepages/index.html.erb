@@ -6,7 +6,7 @@
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3><%= Category.all.count %></h3>
+            <h3 class="counter">10000</h3>
             <p>Categories</p>
           </div>
           <div class="icon">
@@ -22,7 +22,7 @@
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <h3 class="counter">10000</h3>
             <p>Bounce Rate</p>
           </div>
           <div class="icon">
@@ -38,7 +38,7 @@
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3><%= User.all.count %></h3>
+            <h3 class="counter">10000</h3>
 
             <p>User Registrations</p>
           </div>
@@ -55,7 +55,7 @@
         <!-- small box -->
         <div class="small-box bg-danger">
           <div class="inner">
-            <h3>65</h3>
+            <h3 class="counter">10000</h3>
 
             <p>Unique Visitors</p>
           </div>
@@ -73,7 +73,7 @@
     <%= form_tag(admin_search_path, method: "get", remote: true, id: "search-form-chart") do %>
        <%= select_tag "filter", options_for_select(['Day', 
                                                     'Week', 
-                                                    'Month']), id: "select-period" %>
+                                                    'Month']), id: "select-period",class:"form-control" %>
        <%= submit_tag "search", id:'search_submit' ,style: 'display:none'%>
     <% end %>
   </div>
@@ -90,4 +90,19 @@
       dataType: "script",
     })
   })
+</script>
+<script>
+  $(document).ready(function(){
+    $('.counter').counterUp({
+      delay: 145,
+      time: 10000
+    });
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $(document).ready(function() {
+      $('#data-table').dataTable()
+    });
+  });
 </script>

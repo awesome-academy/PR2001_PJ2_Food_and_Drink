@@ -2,6 +2,7 @@ class AddressesController < ApplicationController
   layout "layouts/order/application"
   def index
     @addresses = current_user.addresses
+    @address_first = current_user.addresses.first
   end
   def new
     @address = current_user.addresses.build

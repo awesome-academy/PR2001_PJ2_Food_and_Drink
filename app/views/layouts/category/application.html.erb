@@ -16,16 +16,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
     </script>
   </head>
-
   <body>
-    <div class="container-fluid">
-      <nav class="navbar">
-        <%= link_to root_path, class:"navbar-brand" do %>
-          <%= image_tag 'logo1.jpg', class:"logo",style:"width: 80px;" %> 
-        <% end %>
-      </nav>
+    <div id="list__category">
+      <div class="container-fluid">
+        <nav class="navbar">
+            <%= link_to root_path, class:"navbar-brand" do %>
+            <%= image_tag 'logo1.jpg', class:"logo",style:"width: 80px;" %> 
+            <% end %>
+            <form class="form-inline" action="/action_page.php">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-warning" type="submit">Search</button>
+            </form>
+        </nav>
+      </div>
+      <%= yield %>
     </div>
-    <%= yield %>
-
   </body>
 </html>

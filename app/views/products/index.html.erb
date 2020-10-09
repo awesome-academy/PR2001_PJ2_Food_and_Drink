@@ -13,11 +13,16 @@
             </div>
           </div>
         </div>
+        <%= form_tag products_path, :method => "get" do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "search" %>
+        <% end %>
         <div class="row">
           <% @products.each do |product|%>
             <%= render 'product', product: product %>
           <% end %>
         </div>
+        <%= paginate @products%>
       </div>
     </div>
   </div>

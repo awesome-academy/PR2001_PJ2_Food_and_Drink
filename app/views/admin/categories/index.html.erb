@@ -43,12 +43,9 @@
   
 </div>
   <div class="card">
-  <div class="card-header">
-    <h2 >Categories</h2>
-  </div>
-  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <!-- /.card-header -->
   <div class="card-body">
-    <table class="table table-hover">
+    <table id="data-table" class="table">
       <thead>
         <tr>
           <th>ID</th>
@@ -58,22 +55,16 @@
           <th> Show Detail </th>
         </tr>
       </thead>
-    <tbody id="myTable">  
-        <% @categories.each_with_index  do |category, index| %>
-          <%= render 'category', category: category, index: index %>
-        <% end %>
-    </tbody>
+      <tbody id="myTable">  
+          <% @categories.each_with_index  do |category, index| %>
+            <%= render 'category', category: category, index: index %>
+          <% end %>
+      </tbody>
   </table>
   </div>
-  <script>
-  $(document).ready(function(){
-    $("#myInput").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#myTable tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    });
-  });
-  </script>
  
-  
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#data-table').dataTable()
+}); 
+</script>

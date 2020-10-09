@@ -8,6 +8,7 @@
     .logo {
         color: black !important;
     }
+
     .fix {
         background-color: #ffc800 !important;
     }
@@ -31,4 +32,9 @@
         padding-left: 0px;
         list-style: none;
       }
+    tr td img{
+        border-radius: 50%;
+        max-width: 40px;
+        box-shadow: 2px 2px 9px 1px #ececec;
+    }
 }
