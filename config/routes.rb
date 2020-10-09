@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index , :show]
   end
 
-  devise_for :users
+  devise_for :users , controllers: {omniauth_callbacks: 'omniauth'}
   as :user do  
     get 'login', to: 'devise/sessions#new'
     post 'signup' , to: 'devise/registrations#create'

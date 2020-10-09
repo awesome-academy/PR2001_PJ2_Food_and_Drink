@@ -39,6 +39,10 @@ gem 'bootstrap-kaminari-views'
 gem "paranoia"
 gem 'acts_as_votable'
 gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
 # Use Active Storage variant
 # gem "image_processing", "~> 1.2"
 # Reduces boot times through caching; required in config/boot.rb
