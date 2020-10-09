@@ -6,23 +6,23 @@
           <div class="col-md-4">
             <div class="topbar-left text-center text-md-left">
               <ul class="list-inline">
-                <li> <a href="#"> <%= t(".list_inline1")%> </a></li>
-                <li> <a href="#"> <%= t(".list_inline2")%> </a></li>
-                <li> <a href="#"> <%= t(".list_inline3")%> </a></li>                      
-                <li> <a href="#"> <%= t(".list_inline4")%> </a></li>   
+                <li> <a href="#"> Contact </a></li>
+                <li> <a href="#"> About Us </a></li>
+                <li> <a href="#"> Blog </a></li>                      
+                <li> <a href="#"> Become a Partner </a></li>   
               </ul>
             </div>
           </div>
           <div class="col-md-8">
             <div class="topbar-right text-center text-md-right">
               <ul class="list-inline">
-                <li><a href="#"><i class="far fa-calendar-alt"></i><%= t(".list_inline5")%></a> </li>
-                <li><a href="#"><i class="far fa-bookmark"></i><%= t(".list_inline6")%> </a></li>                    
+                <li><a href="#"><i class="far fa-calendar-alt"></i>Booking</a> </li>
+                <li><a href="#"><i class="far fa-bookmark"></i>Bookmarks </a></li>                    
                 <li id="quantity-cart-item">
                   <%= link_to carts_path do %>
                     <i class="fas fa-shopping-cart"></i>
-                    <%= t(".list_inline7")%> 
-                    <span class="badge badge-pill badge-warning">
+                    Food Orders 
+                    <div class="badge badge-pill badge-warning">
                       <%= link_to "#{current_cart.cart_items.size}", carts_path  %>
                     </div>
                   <% end %>
@@ -40,7 +40,7 @@
                   </li>   
                 <% else %>
                   <li class="nav-item">
-                    <%= link_to t(".list_inline8") , login_path, class:"nav-link" %>
+                    <%= link_to 'Login' , login_path, class:"nav-link" %>
                   </li>
                 <% end %>              
               </ul>
@@ -71,16 +71,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto nav-text">
                     <li class="nav-item active">
-                      <%= link_to t(".item1"), root_path, class:"nav-link"%>
+                      <%= link_to "HOME", root_path, class:"nav-link"%>
                     </li>
                     <li class="nav-item">
-                      <%= link_to t(".item2"), products_path, class:"nav-link"%>
+                      <%= link_to "Meals", products_path, class:"nav-link"%>
                     </li>
                     <li class="nav-item">
                       <%= link_to "Category", category_path(Category.first.id), class:"nav-link"%>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#"><%= t(".item3")%></a>
+                      <a class="nav-link" href="#">Partners</a>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle-no-caret" href="#" id="megaDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Pages <i class="fas fa-caret-down"></i></a>                                                   

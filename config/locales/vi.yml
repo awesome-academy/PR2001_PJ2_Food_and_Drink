@@ -7,39 +7,4 @@ vi:
       searchfood: Tìm đồ ăn
       worktext1: Chọn nhà hàng gần đây
       worktext2: Luôn mang đến cho bạn những gì tốt nhất
-  layouts:
-    header: 
-      list_inline1: Liên Lạc
-      list_inline2: Về Chúng Tôi
-      list_inline3: Blog
-      list_inline4: Thành Viên
-      list_inline5: Đặt Bàn
-      list_inline6: Đánh Dấu
-      list_inline7: Đặt Hàng
-      list_inline8: Đăng Nhập
-      item1: Trang Chủ
-      item2: Món ăn   
-      item3: Thành Viên
-    footer:
-      sub_text: Liên hệ với chúng tôi cho việc cập nhật và đề nghị. 
-      sub_text1: Địa chỉ email
-      new_letter: Đăng kí ngay    
-      text: Ẩm thực là tấm gương phản chiếu chân thực cho nền văn hóa của mỗi quốc gia. Ẩm thực cũng là một cách để mỗi quốc gia quảng bá văn hóa của mình. 
-      language: VietNamese
-      title: Về  FoodAndDrink
-      about: Về Chúng Tôi
-      about1: Thành Tựu
-      about2: Bài Viết
-      about3: Nhà Phát Triển
-      about4: Ứng Dụng
-      about5: Liên Hệ
-      title2: Kinh Doanh
-      restaurant: Thêm Nhà Hàng
-      guild: Hướng Dẫn
-      Ads: Quảng Cáo
-      Partner: Cộng Sự
-      Partner2: Chuỗi Nhà Hàng
-      Pr: Riêng Tư
-      Pr1: Điều Khoản Và Điều Kiện
-      Pr2: Sơ Đồ
-      Pr3: Bản Quyền 2020
+      worktext3: Đặt món trực tiếp tại khu vực của bạn
