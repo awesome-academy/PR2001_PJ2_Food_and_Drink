@@ -14,7 +14,6 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src = "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" defer ></script>
   </head>
-  <% if  logged_in_admin? %>
     <body data-scrollbar-auto-hide="n" class="hold-transition sidebar-mini layout-fixed">
         <div id="admin">
           <div class="wrapper">
@@ -47,8 +46,4 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js" integrity="sha512-kIRDPWIBoKpF79HJv3xBPQgZKjhxzqMGG2N68svvId45w9vp/hTXoR7cDERYhVEhLJTuSGb/c3+ZHgeQfLm0Hg==" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha512-d8F1J2kyiRowBB/8/pAWsqUl0wSEOkG5KATkVV4slfblq9VRQ6MyDZVxWl2tWd+mPhuCbpTB4M7uU/x9FlgQ9Q==" crossorigin="anonymous"></script>
     </body>
-  <% end %>
-  <body class="hold-transition login-page">
-    <%= yield %>
-  </body>
 </html>

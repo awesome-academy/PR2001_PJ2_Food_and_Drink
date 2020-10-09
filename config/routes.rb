@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'homepages#home'
   namespace :admin do
-    get '/', to: 'sessions#new'
     get 'home', to: 'homepages#index'
     get 'chat', to: 'chat#index'
     get 'search', to: 'homepages#search'
