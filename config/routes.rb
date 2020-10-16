@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :categories do 
       resources :products
     end
-    resources :products, only: [:index] 
+    resources :products, only: [:create, :index]
+
     resources :toppings, except: [:update, :edit, :show]
     resources :conversations, only: [:create] do
       member do

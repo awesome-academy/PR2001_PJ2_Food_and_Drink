@@ -17,7 +17,23 @@
             <div class="topbar-right text-center text-md-right">
               <ul class="list-inline">
                 <li><a href="#"><i class="far fa-calendar-alt"></i><%= t(".list_inline5")%></a> </li>
-                <li><a href="#"><i class="far fa-bookmark"></i><%= t(".list_inline6")%> </a></li>                    
+                <li><a href="#"><i class="far fa-bookmark"></i><%= t(".list_inline6")%> </a></li>        
+                <% if signed_in? %>                                       
+                <li class="nav-item dropdown">
+                  <a  class="dropdown-toggle-no-caret" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i><%= current_user.name%><i class="fas fa-caret-down"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+                    <%= link_to "My Profile", user_path(current_user.id), class:"dropdown-item"%>
+                    <a class="dropdown-item" href="#"> Setting</a>
+                    <%= button_to logout_path,  method: "delete", class:"dropdown-item" do%>
+                      Logout <i class="fa fa-sign-out"></i> 
+                    <% end %>
+                  </div>
+                </li>   
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to t(".list_inline8") , login_path, class:"nav-link" %>
+                </li>
+              <% end %>                         
                 <li id="quantity-cart-item">
                   <%= link_to carts_path do %>
                     <i class="fas fa-shopping-cart"></i>
@@ -26,23 +42,7 @@
                       <%= link_to "#{current_cart.cart_items.size}", carts_path  %>
                     </div>
                   <% end %>
-                </li>
-                <% if signed_in? %>                                       
-                  <li class="nav-item dropdown">
-                    <a  class="dropdown-toggle-no-caret" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i><%= current_user.name%><i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
-                      <%= link_to "My Profile", user_path(current_user.id), class:"dropdown-item"%>
-                      <a class="dropdown-item" href="#"> Setting</a>
-                      <%= button_to logout_path,  method: "delete", class:"dropdown-item" do%>
-                        Logout <i class="fa fa-sign-out"></i> 
-                      <% end %>
-                    </div>
-                  </li>   
-                <% else %>
-                  <li class="nav-item">
-                    <%= link_to t(".list_inline8") , login_path, class:"nav-link" %>
-                  </li>
-                <% end %>              
+                </li> 
               </ul>
             </div>
           </div>
