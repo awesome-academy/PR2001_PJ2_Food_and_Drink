@@ -14,8 +14,13 @@
                       <% end %>       
                   </div> 
                   <div class="social-btns">
-                    <button class="facebook-btn"><i class="fab fa-facebook-f"></i>Continue with facebook</button>
-                    <button class="google-btn"><i class="fab fa-google"></i>Continue with Google</button>
+                    <%= link_to user_facebook_omniauth_authorize_path, class: "facebook-btn" do %>
+                      <i class="fab fa-facebook-f"></i>Continue with facebook
+                    <% end %>
+                    </br>
+                    <%= link_to user_google_oauth2_omniauth_authorize_path, class: "google-btn" do%>
+                      <i class="fab fa-google"></i>Continue with Google
+                    <% end %>
                   </div>
                   <div class="or">
                     <p> Or </p>

@@ -39,6 +39,10 @@ gem 'bootstrap-kaminari-views'
 gem "paranoia"
 gem 'acts_as_votable'
 gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
 gem 'searchkick'
 gem 'whenever', require: false
 # Use Active Storage variant

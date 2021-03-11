@@ -22,6 +22,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def show
     @products = @category.products
+    @product = @category.products.build
   end
 
   def edit; end

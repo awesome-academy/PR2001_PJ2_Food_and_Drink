@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'homepages#home'
   namespace :admin do
-    get '/', to: 'sessions#new'
     get 'home', to: 'homepages#index'
     get 'chat', to: 'chat#index'
     get 'search', to: 'homepages#search'
@@ -10,7 +9,8 @@ Rails.application.routes.draw do
     resources :categories do 
       resources :products
     end
-    resources :products, only: [:index] 
+    resources :products, only: [:create, :index]
+
     resources :toppings, except: [:update, :edit, :show]
     resources :conversations, only: [:create] do
       member do
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index , :show]
   end
 
-  devise_for :users
+  devise_for :users , controllers: {omniauth_callbacks: 'omniauth'}
   as :user do  
     get 'login', to: 'devise/sessions#new'
     post 'signup' , to: 'devise/registrations#create'
