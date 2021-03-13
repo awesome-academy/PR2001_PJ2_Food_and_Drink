@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :user_sign_up_params, only: [:create]
   # before_action :user_update_params, only: [:update]
-  before_filter :authenticate_user! , except: [ :create ]
+  before_action :authenticate_user! , except: [ :create ]
   # GET /resource/sign_up
   # def new
   #   super

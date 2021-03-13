@@ -1,6 +1,7 @@
 class Admin::HomepagesController < Admin::BaseController
   def index
-    
+    @category_count = Category.count 
+    @user_count = User.count
   end
 
   def search

@@ -1,8 +1,7 @@
 <tr>
-  <td><%= index +1 %></td>
-  <td><%= product.name_product %></td>
+  <td><%= link_to product.id, admin_category_product_path(product.category, product) %></td>
+  <td><%= link_to product.name_product, admin_category_product_path(product.category, product) %></td>
   <td><%= product.information %></td>
-  <td><%= product.old_price %></td>
   <td><%= product.price %></td>
   <td><%= product.kind %></td>
   <td>

@@ -1,15 +1,31 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1><%= @product.name_product %></h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
+          <li class="breadcrumb-item"><a href="/admin/products">Products</a></li>
+          <li class="breadcrumb-item active">Detail</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8 col-8">
       <div class="show-image">
-        <h2><%= @product.name_product %></h2>
         <% @product.images.each do |image| %>
           <%= image_tag image, class:"set-size-for-product" %>
         <% end %>
       </div>
     </div>
     <div class="col-md-4 col-4">
-      <div class="show-infor">   
+      <div class="show-infor">
         <h3><%= @product.information %></h3>
         <h3><%= @product.old_price %></h3>
         <h3><%= @product.price %></h3>

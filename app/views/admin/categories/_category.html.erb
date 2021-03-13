@@ -1,19 +1,19 @@
 <tr>
-  <td><%= index +1 %></td>
+  <td><%= link_to category.id, admin_category_path(category) %></td>
   <td><%= image_tag(category.image, alt:"") if category.image.attached?%></td>
-  <td><%= category.name %></td>
+  <td><%= link_to category.name, admin_category_path(category) %></td>
   <td>
    <!-- Trigger the modal with a button -->
     <%= link_to "#", "data-toggle" => "modal", "data-target" => "#category-#{category.id}" do %>
       <i class='fas fa-wrench' style='color: black'></i>
-    <% end %> 
+    <% end %>
     <!-- Modal -->
     <div class="modal fade" id="category-<%= category.id%>" role="dialog">
       <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <%= form_for [:admin, category] do |f|%>
             <div class="modal-body">

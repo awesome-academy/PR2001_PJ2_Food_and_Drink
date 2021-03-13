@@ -1,6 +1,22 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1><%=@category.name%></h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
+          <li class="breadcrumb-item"><a href="/admin/categories">Categories</a></li>
+          <li class="breadcrumb-item active">Detail</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="card">
   <div class="card-header">
-    <h2 >Products Belongs To <%=@category.name%></h2>
     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myTable">
     Create Product
     </button>
@@ -9,7 +25,7 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <%= form_for [:admin, @category, @product] do |f|%>
             <div class="modal-body">
@@ -61,16 +77,15 @@
         <tr>
           <th>ID</th>
           <th>Name Product</th>
-          <th> Information </th> 
-          <th>Old Price</th>
+          <th> Information </th>
           <th>Price</th>
           <th>Style</th>
           <th> Action </th>
         </tr>
       </thead>
-      <tbody>   
+      <tbody>
         <% @category.products.each_with_index  do |product, index| %>
-        <%= render 'product', product: product, index: index %>
+        <%= render 'product', product: product, index: index unless product.new_record? %>
         <% end %>
       </tbody>
     </table>

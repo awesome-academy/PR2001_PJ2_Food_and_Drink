@@ -1,54 +1,5 @@
   <!--header start-->
   <header id="header" class="default">
-    <div class="topbar">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="topbar-left text-center text-md-left">
-              <ul class="list-inline">
-                <li> <a href="#"> <%= t(".list_inline1")%> </a></li>
-                <li> <a href="#"> <%= t(".list_inline2")%> </a></li>
-                <li> <a href="#"> <%= t(".list_inline3")%> </a></li>                      
-                <li> <a href="#"> <%= t(".list_inline4")%> </a></li>   
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-8">
-            <div class="topbar-right text-center text-md-right">
-              <ul class="list-inline">
-                <li><a href="#"><i class="far fa-calendar-alt"></i><%= t(".list_inline5")%></a> </li>
-                <li><a href="#"><i class="far fa-bookmark"></i><%= t(".list_inline6")%> </a></li>        
-                <% if signed_in? %>                                       
-                <li class="nav-item dropdown">
-                  <a  class="dropdown-toggle-no-caret" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i><%= current_user.name%><i class="fas fa-caret-down"></i></a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
-                    <%= link_to "My Profile", user_path(current_user.id), class:"dropdown-item"%>
-                    <a class="dropdown-item" href="#"> Setting</a>
-                    <%= button_to logout_path,  method: "delete", class:"dropdown-item" do%>
-                      Logout <i class="fa fa-sign-out"></i> 
-                    <% end %>
-                  </div>
-                </li>   
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to t(".list_inline8") , login_path, class:"nav-link" %>
-                </li>
-              <% end %>                         
-                <li id="quantity-cart-item">
-                  <%= link_to carts_path do %>
-                    <i class="fas fa-shopping-cart"></i>
-                    <%= t(".list_inline7")%> 
-                    <span class="badge badge-pill badge-warning">
-                      <%= link_to "#{current_cart.cart_items.size}", carts_path  %>
-                    </div>
-                  <% end %>
-                </li> 
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="menu">
       <div class="container">
         <div class="row">
@@ -56,14 +7,14 @@
             <div class="menu-left text-center text-md-left">
               <div class="logo-box">
                 <%= link_to root_path do %>
-                  <%= image_tag 'logo1.jpg', class:"logo" %> 
+                  <%= image_tag 'logo1.jpg', class:"logo" %>
                 <% end %>
               </div>
             </div>
           </div>
-          <div class="col-md-10 col-sm-12 col-xs-12"> 
+          <div class="col-md-10 col-sm-12 col-xs-12">
             <div class="menu-items">
-              <nav class="navbar navbar-expand-lg navbar-light menu-right">                    
+              <nav class="navbar navbar-expand-lg navbar-light menu-right">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -83,54 +34,51 @@
                       <a class="nav-link" href="#"><%= t(".item3")%></a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle-no-caret" href="#" id="megaDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Pages <i class="fas fa-caret-down"></i></a>                                                   
-                      <div class="dropdown-menu mega-menu dropdown-menu-right"> 
+                      <a class="nav-link dropdown-toggle-no-caret" href="#" id="megaDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Pages <i class="fas fa-caret-down"></i></a>
+                      <div class="dropdown-menu mega-menu dropdown-menu-right">
                         <div class="row">
                           <div class="col-md-3">
                             <a class="dropdown-item" href="#"> About us</a>
                             <a class="dropdown-item" href="#"> Become a Partner</a>
                             <a class="dropdown-item" href="#"> Add Restaurant</a>
                           </div>
-                          <div class="col-md-3">    
+                          <div class="col-md-3">
                             <a class="dropdown-item" href="#"> Near Places</a>
                           </div>
-                          <div class="col-md-3">                                            
+                          <div class="col-md-3">
                             <a class="dropdown-item" href="#"> Cafes & More</a>
                             <a class="dropdown-item" href="#"> Upcoming Events</a>
                             <a class="dropdown-item" href="#"> Event Detail View</a>
                           </div>
-                          <div class="col-md-3">                              
+                          <div class="col-md-3">
                             <a class="dropdown-item" href="#"> Our Blog</a>
                             <a class="dropdown-item" href="#"> Single Blog Detail View</a>
                             <a class="dropdown-item" href="#"> Contact</a>
                           </div>
                         </div>
-                      </div>  
+                      </div>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Browse Places</a>
-                    </li>
-                  </ul>                     
+                  </ul>
                 </div>
               </nav>
               <div class="icons-set">
                 <ul class="list-inline">
                   <li class="icon-items nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle-no-caret" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-search"></i></a>                    
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1"> 
-                      <div class="notification-item">                         
+                    <a class="nav-link dropdown-toggle-no-caret" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-search"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1">
+                      <div class="notification-item">
                         <div class="search-details">
                           <form class="form-inline">
                             <input class="form-control " type="search" placeholder="Search product" aria-label="Search">
                             <button class="s-btn btn-link " type="submit"><i class="fas fa-search"></i></button>
-                          </form>                                                               
+                          </form>
                         </div>
-                      </div>                        
-                    </div>    
+                      </div>
+                    </div>
                   </li>
                   <% if user_signed_in? %>
                     <li class="nav-item btn-group" data-behavior='notifications'>
-                     <a class="dropdown-toggle nav-link" type="button" data-behavior="notifications-link" id="dropdownMenu1"  data-toggle="dropdown">  
+                     <a class="dropdown-toggle nav-link" type="button" data-behavior="notifications-link" id="dropdownMenu1"  data-toggle="dropdown">
                      <i class="fas fa-bell"></i><span data-behavior="unread-count"></span>
                      </a>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenu1" data-behavior="notification-items">
@@ -142,15 +90,37 @@
                      </div>
                     </li>
                   <% end %>
-                  <li class="partner-btn">
-                    <a href="#" class="b-btn btn-link">Become a Partner</a>
-                  </li>                                    
+                  <li id="quantity-cart-item">
+                    <%= link_to carts_path do %>
+                      <i class="fas fa-shopping-cart"></i>
+                      <%= t(".list_inline7")%>
+                      <span class="badge badge-pill badge-warning">
+                        <%= link_to "#{current_cart.cart_items.size}", carts_path  %>
+                      </span>
+                    <% end %>
+                  </li>
+                  <% if user_signed_in? %>
+                    <li class="nav-item dropdown">
+                      <a  class="dropdown-toggle-no-caret" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i><%= current_user.name%><i class="fas fa-caret-down"></i></a>
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+                        <%= link_to "My Profile", user_path(current_user.id), class:"dropdown-item"%>
+                        <a class="dropdown-item" href="#"> Setting</a>
+                        <%= button_to logout_path,  method: "delete", class:"dropdown-item" do%>
+                          Logout <i class="fa fa-sign-out"></i>
+                        <% end %>
+                      </div>
+                    </li>
+                  <% else %>
+                    <li class="nav-item">
+                      <%= link_to t(".list_inline8") , login_path, class:"nav-link" %>
+                    </li>
+                  <% end %>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>        
+    </div>
   </header>
   <!--header end-->

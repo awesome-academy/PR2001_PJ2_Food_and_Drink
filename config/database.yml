@@ -9,8 +9,10 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: "12345678"
-  socket: /var/run/mysqld/mysqld.sock
+  password: ""
+  host: db
+  password: root
+  # socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

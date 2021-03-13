@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: carts
+#
+#  id           :bigint           not null, primary key
+#  total_amount :integer
+#  user_id      :bigint
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
 class Cart < ApplicationRecord
   has_many :cart_items
   has_many :products, through: :cart_items

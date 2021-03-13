@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id                  :bigint           not null, primary key
+#  payments            :integer
+#  save_price_to_order :integer
+#  user_id             :bigint           not null
+#  cart_id             :bigint           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  order_code          :string(255)
+#  status              :integer
+#  deleted_at          :datetime
+#  address_id          :integer
+#
 class Order < ApplicationRecord
     belongs_to :cart, optional: true, dependent: :destroy
     belongs_to :address,  optional: true

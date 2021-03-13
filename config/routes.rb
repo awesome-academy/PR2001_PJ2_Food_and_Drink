@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   root 'homepages#home'
+  get 'admin', to: 'admin/homepages#index'
   namespace :admin do
     get 'home', to: 'homepages#index'
     get 'chat', to: 'chat#index'
     get 'search', to: 'homepages#search'
-    
+
     resources :sessions, only: %i[new create destroy]
-    resources :categories do 
+    resources :categories do
       resources :products
     end
     resources :products, only: [:create, :index]
@@ -16,19 +17,19 @@ Rails.application.routes.draw do
       member do
         post :close
       end
-  
+
       resources :messages, only: [:create]
     end
     resources :orders, only: [:index]
   end
 
 
-  resources :categories, only: [:index, :show] do 
+  resources :categories, only: [:index, :show] do
     resources :products, only: [:index , :show]
   end
-
+  devise_for :managers, path: '', path_names: { sign_in: '/admin/login', sign_out: '/admin/logout', sign_up: '/admin/register' }
   devise_for :users , controllers: {omniauth_callbacks: 'omniauth'}
-  as :user do  
+  as :user do
     get 'login', to: 'devise/sessions#new'
     post 'signup' , to: 'devise/registrations#create'
     get 'signup', to: 'devise/registrations#new'
@@ -49,7 +50,7 @@ Rails.application.routes.draw do
   resources :toppings, only:[:index]
   resources :users, except:[:destroy, :index] do
     resources :comments, only:[:create, :destroy]
-  end 
+  end
   resources :users, only:[:show] do
     resources :addresses
   end

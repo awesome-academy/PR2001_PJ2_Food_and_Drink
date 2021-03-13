@@ -6,7 +6,7 @@
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3 class="counter">10000</h3>
+            <h3 class="counter"><%= @category_count %></h3>
             <p>Categories</p>
           </div>
           <div class="icon">
@@ -38,7 +38,7 @@
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3 class="counter">10000</h3>
+            <h3 class="counter"><%= @user_count %></h3>
 
             <p>User Registrations</p>
           </div>
@@ -92,12 +92,12 @@
   })
 </script>
 <script>
-  $(document).ready(function(){
-    $('.counter').counterUp({
-      delay: 145,
-      time: 10000
-    });
-  });
+  # $(document).ready(function(){
+  #   $('.counter').counterUp({
+  #     delay: 145,
+  #     time: 10000
+  #   });
+  # });
 </script>
 <script type="text/javascript">
   $(document).ready(function(){

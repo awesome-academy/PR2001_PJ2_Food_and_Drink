@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: cart_items
+#
+#  id                      :bigint           not null, primary key
+#  quantity                :integer
+#  total_product           :integer
+#  save_price_to_cart_item :integer
+#  category_id             :integer
+#  product_id              :bigint
+#  cart_id                 :bigint
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#
 class CartItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart, optional: true
