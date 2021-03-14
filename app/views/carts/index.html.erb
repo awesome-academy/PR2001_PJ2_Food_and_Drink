@@ -22,7 +22,7 @@
           </td>
           <td class="buying">
             <div class="create-cart">
-              <%= number_field_tag :quantity, cart_item.quantity , in: 1..99, step:1, 
+              <%= number_field_tag :quantity, cart_item.quantity , in: 1..99, step:1,
                class:"form-control quantity", id:"cart_item_quantity-#{cart_item.id}"%>
             </div>
             <script>
@@ -54,18 +54,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <h4> Total the Bill: </h4> 
+          <h4> Total the Bill: </h4>
         </div>
         <div class="col-md-3">
           <h5 id="cart-total-amount">$<%= current_cart.caculate_total_amount.sum%></h5>
-          <div class="order">
+          <div class="order" style="margin-top: 10px;">
             <%= form_for current_cart, url: user_addresses_path(current_user.id), method: :get, class:"form-group" do |f| %>
               <%= f.hidden_field :cart_id, value: current_cart.id %>
-              <%= f.submit "Go to order", class:"btn btn-origin" %>
+              <%= f.submit "Go to order", class:"btn btn-origin btn-primary" %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-<% end %>  
+<% end %>

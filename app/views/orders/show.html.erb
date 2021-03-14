@@ -1,3 +1,5 @@
-<h2>You got to buy success !</h2>
-<p> Click here to watch order history detail <%=link_to "Here", user_path(current_user.id)%> </p>
-<%= link_to "Cancel", root_path, class:"btn btn-warning", method: :delete %>
+<div class="container" style="min-height: 350px;">
+    <h2>You got to buy success !</h2>
+    <p> Click here to watch order history detail <%=link_to "Here", user_path(current_user.id)%> </p>
+    <%= link_to "Go to homepage", root_path, class:"btn btn-warning" %>
+</div>

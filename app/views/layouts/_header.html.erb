@@ -95,9 +95,8 @@
                   <li id="quantity-cart-item">
                     <%= link_to carts_path do %>
                       <i class="fas fa-shopping-cart"></i>
-                      <%= t(".list_inline7")%>
                       <span class="badge badge-pill badge-warning">
-                        <%= link_to "#{current_cart.cart_items.size}", carts_path  %>
+                        <%= current_cart.cart_items.size %>
                       </span>
                     <% end %>
                   </li>

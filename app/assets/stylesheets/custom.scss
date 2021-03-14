@@ -1,5 +1,5 @@
 .view-for-user{
-  .mega-menu { 
+  .mega-menu {
   width:800px;
   overflow:hidden;
   padding:0px;
@@ -9,7 +9,7 @@
       left: -470px;
   }
   .logo{
-    width: 4em;
+    width: 3em;
   }
   .all-meal:hover {
     border: 1px solid #777;
@@ -18,7 +18,7 @@
     width:42em;
   }
   .menu-right{
-    background-color: white !important;
+    background-color: lightgray;
   }
   .pagination , .pagination span.gap {
     float: left;
@@ -81,5 +81,5 @@
   footer{
     margin-top: 2em;
   }
-  
+
 }

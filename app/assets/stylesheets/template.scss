@@ -556,10 +556,13 @@ and something more appropriate for display headings */
     }
     .menu {
         border-bottom: 0;
-        background: #fff;
+        background: lightgray;
     }
     .logo-box {
-        padding: 16px 0px;
+        padding: 5px;
+        img {
+            border-radius: 50%;
+        }
     }
     .menu-left {
         text-align: left;

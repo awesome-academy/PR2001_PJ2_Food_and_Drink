@@ -1,17 +1,15 @@
-<div class="container">
+<div class="container" style="min-height: 400px;">
   <div class="row">
     <div class="col-md-12">
       <h3>Địa chỉ giao hàng</h3>
       <b>Chọn địa chỉ có săn bên dưới:</b>
     </div>
     <div class="row add-address">
-      <% @addresses.each do |address|%>
-        <%= render 'address', address: address %>
-      <% end %> 
-    </div>  
+      <%= render partial: "address", collection: @addresses %>
+    </div>
     <p>Do you want to add an other address?
       <b>
-        <span id="create-address">Add new address</span>
+        <span id="create-address" style="cursor: pointer;">Add new address</span>
       </b>
     </p>
   </div>
@@ -43,7 +41,7 @@
           <%= f.text_field :stress, class:"form-control mb-2 mr-sm-2 input-6",placeholder:"Enter stress"%>
         </div>
         <div class="form-inline">
-          <%= f.submit "Add address", class:"btn btn-primary"%>
+          <%= f.submit "Add address", class:"btn btn-dark"%>
         </div>
       <% end %>
     </div>
@@ -51,7 +49,7 @@
 </div>
 <script>
   $(document).ready(function(){
-    $("#create-address").click(function() { 
+    $("#create-address").click(function() {
       $(".new-address").show();
     });
   });
