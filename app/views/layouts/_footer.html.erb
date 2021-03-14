@@ -1,41 +1,5 @@
 <!--footer start-->
 <footer class="footer">
-  <div class="subscribe-now line">
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-lg-5 col-md-6">
-          <div class="subscribe-newsletter">
-            <div class="sub-text">
-              <p><%= t(".sub_text")%></p>
-            </div>
-            <form>
-              <input class="input-subscribe" name="newsletter" type="text" placeholder= " <%= t(".sub_text1")%> ">
-              <div class="subscribe-btn">
-                <div class="s-n-btn">
-                  <button class="newsletter-btn btn-link"><%= t(".new_letter")%></button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3">
-          <div class="language">
-            <form method="post" enctype="multipart/form-data" id="form-language">
-              <div class="btn-group open">
-                <button class="lang-btn l-btn-link dropdown-toggle-no-caret" data-toggle="dropdown" aria-expanded="true">
-                  <i class="fas fa-globe"></i><span class="hidden-xs"><%= t(".language")%></span><i class="fas fa-caret-down"></i>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "English", locale:"en" %></li>
-                  <li><%= link_to "Vietnamese", locale:"vi" %></li>
-                </ul>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
@@ -91,6 +55,19 @@
             <a href="#">
               <div class="social-btn soc-btn"><i class="fab fa-youtube"></i></div>
             </a>
+          </div>
+          <div class="language">
+            <form method="post" enctype="multipart/form-data" id="form-language">
+              <div class="btn-group open">
+                <button class="lang-btn l-btn-link dropdown-toggle-no-caret" data-toggle="dropdown" aria-expanded="true">
+                  <i class="fas fa-globe"></i><span class="hidden-xs"><%= t(".language")%></span><i class="fas fa-caret-down"></i>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "English", locale:"en" %></li>
+                  <li><%= link_to "Vietnamese", locale:"vi" %></li>
+                </ul>
+              </div>
+            </form>
           </div>
         </div>
       </div>
