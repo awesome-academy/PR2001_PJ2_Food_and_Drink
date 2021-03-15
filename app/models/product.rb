@@ -32,7 +32,7 @@ class Product < ApplicationRecord
   has_many_attached :images
 
   enum kind: [:food, :drink]
-  
+
   validates :name_product, presence: true, length: { maximum: 50 }
   validates :price, presence: true, numericality: true
   validates :information, presence: true, length: { maximum: 255 }

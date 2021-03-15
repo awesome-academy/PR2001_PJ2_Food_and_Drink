@@ -1,7 +1,7 @@
 FROM ruby:2.6.3
 RUN apt-get update -qq
 RUN apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
-RUN apt-get install -y qt5-default libbison-dev libqt5webkit5-dev nodejs
+RUN apt-get install -y qt5-default libbison-dev libqt5webkit5-dev nodejs npm vim
 
 RUN mkdir /food_and_drink
 WORKDIR /food_and_drink
