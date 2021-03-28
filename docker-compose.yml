@@ -54,7 +54,9 @@ services:
   #     - redis
   #     - elasticsearch
   #     - mailcatcher
-
+environment:
+     ELASTIC_HOST: "elastic"
+     ELASTIC_PORT: "9200"
 volumes: 
   mysql_data:
   es_data:

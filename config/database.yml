@@ -9,9 +9,9 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: ""
-  host: db
-  password: root
+  # password: ""
+  # host: db
+  password: 12345678
   # socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and

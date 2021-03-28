@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2021_03_13_173553) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_name"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_addresses_on_deleted_at"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -55,7 +57,9 @@ ActiveRecord::Schema.define(version: 2021_03_13_173553) do
     t.bigint "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["deleted_at"], name: "index_cart_items_on_deleted_at"
     t.index ["product_id"], name: "index_cart_items_on_product_id"
   end
 
@@ -64,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_03_13_173553) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_carts_on_deleted_at"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -81,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_03_13_173553) do
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "score"
     t.index ["product_id"], name: "index_comments_on_product_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -93,6 +100,24 @@ ActiveRecord::Schema.define(version: 2021_03_13_173553) do
     t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true
     t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "coupons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "formality"
+    t.integer "price_coupon"
+    t.string "content"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "cart_id"
+    t.integer "order_id"
+    t.integer "user_id"
+    t.index ["deleted_at"], name: "index_coupons_on_deleted_at"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "link"
+    t.integer "coupon_id"
   end
 
   create_table "managers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -144,6 +169,7 @@ ActiveRecord::Schema.define(version: 2021_03_13_173553) do
     t.integer "status"
     t.datetime "deleted_at"
     t.integer "address_id"
+    t.integer "total_price_after_coupon"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -199,9 +225,9 @@ ActiveRecord::Schema.define(version: 2021_03_13_173553) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
-    t.boolean "admin", default: false
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
+    t.boolean "admin", default: false
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
