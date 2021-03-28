@@ -24,14 +24,23 @@ Rails.application.configure do
   #   :enable_starttls_auto => true
   # }
 
-  config.action_mailer.smtp_settings = {
-    :user_name => ENV['EMAIL_SERVICE_USER_NAME'],
-    :password => ENV['EMAIL_SERVICE_PASSWORD'],
-    :address => ENV['EMAIL_SERVICE_ADDRESS'],
-    :domain => ENV['EMAIL_SERVICE_ADDRESS'],
-    :port => '2525',
-    :authentication => :cram_md5
-  }
+  # config.action_mailer.smtp_settings = {
+  #   :user_name => ENV['EMAIL_SERVICE_USER_NAME'],
+  #   :password => ENV['EMAIL_SERVICE_PASSWORD'],
+  #   :address => ENV['EMAIL_SERVICE_ADDRESS'],
+  #   :domain => ENV['EMAIL_SERVICE_ADDRESS'],
+  #   :port => '2525',
+  #   :authentication => :cram_md5
+  # }
+  config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :user_name => '9396d299e34f10',
+  :password => 'daffd1d187a519',
+  :address => 'smtp.mailtrap.io',
+  :domain => 'smtp.mailtrap.io',
+  :port => '2525',
+  :authentication => :cram_md5
+}
   # Show full error reports.
   config.consider_all_requests_local = true
 
