@@ -54,7 +54,6 @@ services:
   #     - redis
   #     - elasticsearch
   #     - mailcatcher
-
 volumes:
   mysql_data:
   es_data:

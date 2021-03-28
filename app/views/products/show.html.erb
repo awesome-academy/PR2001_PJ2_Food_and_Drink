@@ -133,7 +133,7 @@
                       <% if signed_in?%>
                         <%= f.hidden_field :user_id, value: current_user.id %>
                       <% end %>
-                      <%= f.submit "Post comment", class:"submit-btn btn-link"%>
+                      <%= f.submit "Post comment", class:"submit-btn btn-link", style: "margin-left:10px" %>
                     <% end %>
                   </div>
                 </div>
