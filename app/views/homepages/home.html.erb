@@ -129,7 +129,7 @@
                   <div class="item">
                     <%= link_to category_path(category.id) do %>
                       <div class="meal-icon">
-                        <%=image_tag category.image%>
+                        <%=image_tag category.image if category.image.present? %>
                       </div>
                       <div class="meal-title">
                         <%= category.name%>

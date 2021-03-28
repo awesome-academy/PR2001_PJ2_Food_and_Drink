@@ -1,9 +1,9 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :get_category, except: [:index] 
+  before_action :get_category, except: [:index]
   before_action :get_product, only: [:show , :edit, :update, :destroy]
   def index
     @products = Product.all
-    
+
   end
 
   def show; end
@@ -16,7 +16,7 @@ class Admin::ProductsController < Admin::BaseController
     @product = @category.products.build product_params_create
     if @product.save
       flash[:success] = 'create successful product'
-      redirect_to admin_category_products_path(@category)
+      redirect_to admin_category_path(@category)
     else
       flash[:alert] = 'Product could not be created!'
       render :new

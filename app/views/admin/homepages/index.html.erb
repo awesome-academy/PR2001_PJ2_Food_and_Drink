@@ -4,6 +4,22 @@
     <div class="row">
       <div class="col-lg-3 col-6">
         <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3 class="counter"><%= @order_count %></h3>
+            <p>Orders</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+          </div>
+          <%= link_to admin_orders_path, class:"small-box-footer" do %>
+            More info <i class="fas fa-arrow-circle-right"></i>
+          <% end %>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
             <h3 class="counter"><%= @category_count %></h3>
@@ -12,7 +28,7 @@
           <div class="icon">
             <i class="ion ion-bag"></i>
           </div>
-          <%= link_to admin_categories_path, class:"small-box-footer" do %> 
+          <%= link_to admin_categories_path, class:"small-box-footer" do %>
             More info <i class="fas fa-arrow-circle-right"></i>
           <% end %>
         </div>
@@ -20,17 +36,17 @@
       <!-- ./col -->
       <div class="col-lg-3 col-6">
         <!-- small box -->
-        <div class="small-box bg-success">
+        <div class="small-box bg-danger">
           <div class="inner">
-            <h3 class="counter">10000</h3>
-            <p>Bounce Rate</p>
+            <h3 class="counter"><%= @product_count %></h3>
+            <p>Products</p>
           </div>
           <div class="icon">
-            <i class="ion ion-stats-bars"></i>
+            <i class="ion ion-bag"></i>
           </div>
-          <a href="#" class="small-box-footer">More info 
-            <i class="fas fa-arrow-circle-right"></i>
-          </a>
+          <%= link_to admin_products_path, class:"small-box-footer" do %>
+            More info <i class="fas fa-arrow-circle-right"></i>
+          <% end %>
         </div>
       </div>
       <!-- ./col -->
@@ -39,40 +55,22 @@
         <div class="small-box bg-warning">
           <div class="inner">
             <h3 class="counter"><%= @user_count %></h3>
-
             <p>User Registrations</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer">More info 
-            <i class="fas fa-arrow-circle-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-danger">
-          <div class="inner">
-            <h3 class="counter">10000</h3>
-
-            <p>Unique Visitors</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-pie-graph"></i>
-          </div>
-          <a href="#" class="small-box-footer">More info 
-            <i class="fas fa-arrow-circle-right"></i>
-          </a>
+          <%= link_to admin_users_path, class:"small-box-footer" do %>
+            More info <i class="fas fa-arrow-circle-right"></i>
+          <% end %>
         </div>
       </div>
     </div>
     </div>
     <div>
     <%= form_tag(admin_search_path, method: "get", remote: true, id: "search-form-chart") do %>
-       <%= select_tag "filter", options_for_select(['Day', 
-                                                    'Week', 
+       <%= select_tag "filter", options_for_select(['Day',
+                                                    'Week',
                                                     'Month']), id: "select-period",class:"form-control" %>
        <%= submit_tag "search", id:'search_submit' ,style: 'display:none'%>
     <% end %>

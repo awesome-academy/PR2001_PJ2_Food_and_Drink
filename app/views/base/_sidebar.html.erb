@@ -44,6 +44,23 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item has-treeview <%= request.fullpath.match(/admin\/orders/) ? 'menu-open' : '' %>">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-shopping-cart change"></i>
+            <p class="change">
+              Orders
+              <i class="fas fa-angle-left right change"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" style="margin-left: 30px;">
+              <%= link_to admin_orders_path, class:"nav-link" do%>
+                <i class="far fa-circle nav-icon change"></i>
+                <p class="change">List</p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
         <li class="nav-item has-treeview <%= request.fullpath.match(/admin\/products/) ? 'menu-open' : '' %>">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-utensils change"></i>

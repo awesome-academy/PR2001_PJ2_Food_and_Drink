@@ -24,7 +24,7 @@
 #
 class Product < ApplicationRecord
   acts_as_votable
-  searchkick
+  # searchkick
 
   belongs_to :category
   has_many :comments
@@ -40,6 +40,10 @@ class Product < ApplicationRecord
   delegate :name, :image, to: :category, allow_nil: true, prefix: true
 
   acts_as_paranoid
+
+  scope :search_by_name_or_information, ->name do
+    where("products.name_product like ? OR products.information like ?", "%#{name}%", "%#{name}%")
+  end
 
   def self.limit_product
     order(created_at: :desc).limit(8)

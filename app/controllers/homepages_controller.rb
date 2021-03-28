@@ -3,7 +3,7 @@ class HomepagesController < ApplicationController
     @categories = Category.all
     @products = Product.limit(8)
     @carts = current_cart
-    if signed_in?
+    if signed_in?(:user)
       @addresses = current_user.addresses
     end
     @q = params[:search]

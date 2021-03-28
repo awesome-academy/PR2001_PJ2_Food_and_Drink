@@ -12,7 +12,7 @@
     <%= link_to "#" do %>
       <i class='fas fa-wrench' style='color: black'></i>
     <% end %>
-    <%= link_to "#", method: :delete, data: {confirm: 'Are you sure?', remote: true }, class:"delete-product" do %>
+    <%= link_to admin_category_product_path(product.category, product), method: :delete, data: {confirm: 'Are you sure?', remote: true }, class:"delete-product" do %>
       <i class='far fa-trash-alt' style='color: black'></i>
     <% end %>
   </td>

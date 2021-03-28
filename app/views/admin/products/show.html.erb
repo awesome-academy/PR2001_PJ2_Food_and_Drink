@@ -1,36 +1,151 @@
-<section class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1><%= @product.name_product %></h1>
-      </div>
-      <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
-          <li class="breadcrumb-item"><a href="/admin/products">Products</a></li>
-          <li class="breadcrumb-item active">Detail</li>
-        </ol>
+<section class="view-for-user">
+  <section class="title-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="left-title-text">
+            <h3>Product detail View</h3>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="right-title-text">
+            <ul>
+              <li class="breadcrumb-item">
+                <%= link_to "Home", root_url %>
+              </li>
+              <li class="breadcrumb-item">
+                <%= link_to "All Meals", products_path %>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page"><%=@product.name_product%></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="all-partners">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <% @product.images.each_with_index do |image, index| %>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>"
+                class="<%= index == 0 ? 'active' : '' %>">
+                </li>
+              <% end %>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= image_tag @product.images.first, class:"fix-size-for-carousel" %>
+              </div>
+              <% @product.images.drop(1).each do |image| %>
+                <div class="carousel-item">
+                  <%= image_tag image, class:"fix-size-for-carousel" %>
+                </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          <div class="resto-meal-dt">
+            <div class="resto-detail">
+              <div class="resto-picy" style="position: absolute; top: 525px;">
+                <%= link_to category_path(@product.category.id) do %>
+                <%= image_tag @product.category.image , class:"fix-size-category", style: "border-radius: 50%; width: 300px;" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="name-location">
+              <div class="right-side-btns">
+            <div class="bagde-dt">
+              <div class="partner-badge">
+                Rating
+              </div>
+            </div>
+            <div class="resto-review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>4.5/5</span>
+            </div>
+          </div>
+            </div>
+          </div>
+          <div class="published-like-comments">
+            <div class="published-time">
+              <h4>Feedback</h4>
+            </div>
+            <div class="like-comments">
+              <ul>
+                <li>
+                  <%= link_to like_product_path(@product), class:"like-btn" , method: :put, remote: :true do %>
+                  <span class="views" data-toggle="tooltip" data-placement="top" title="Like">
+                    <i class="fas fa-heart"></i>
+                  </span>
+                  <% end %>
+                  <span class="likes-count"><%= @product.get_upvotes.size %></span>
+                </li>
+                <li>
+                  <span class="views" data-toggle="tooltip" data-placement="top" title="Comments">
+                    <i class="fas fa-comment-alt"></i>
+                    <ins><%=@product.comments.count%></ins>
+                  </span>
+                </li>
+                <li>
+                  <div class="btn-group social-share">
+                    <span class="dropdown-toggle-no-caret views" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="main" title="share">
+                      <i class="fas fa-share-alt"></i>
+                      <ins>Share</ins>
+                    </span>
+                  </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div class="right-side">
+            <div class="new-heading t-bottom">
+              <h1><%= @product.name_product%></h1>
+            </div>
+            <div class="about-meal">
+              <h4> Description</h4>
+              <p><%= @product.information%></p>
+            </div>
+            <div class="price">
+              <% if @product.old_price.present? %>
+                <strike>
+                  <span>$<%= @product.old_price%>.00</span>
+                </strike>
+              <% end %>
+              <span data-price="<%= @product.price %>" id="product-price">
+                <h4>Price: $<%= @product.price%>.00</h4>
+              </span>
+            </div>
+            <div class="dt-detail">
+              <ul>
+                <li>
+                  <div class="delivery">
+                    <i class="fas fa-shopping-cart"></i>Delivery Free : Free
+                  </div>
+                </li>
+                <li>
+                  <div class="time">
+                    <i class="far fa-clock"></i>Delivery Time : 30 Min
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-8 col-8">
-      <div class="show-image">
-        <% @product.images.each do |image| %>
-          <%= image_tag image, class:"set-size-for-product" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-md-4 col-4">
-      <div class="show-infor">
-        <h3><%= @product.information %></h3>
-        <h3><%= @product.old_price %></h3>
-        <h3><%= @product.price %></h3>
-        <h3><%= @product.kind%></h3>
-      </div>
-    </div>
-  </div>
-</div>

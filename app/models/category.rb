@@ -17,5 +17,5 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   acts_as_paranoid
-  searchkick
+  # searchkick
 end

@@ -14,14 +14,20 @@
           </div>
         </div>
         <%= form_tag products_path, :method => "get" do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "search" %>
+          <div class="row">
+            <div class="col-md-8">
+              <%= text_field_tag :search, params[:search], placeholder: "Search by name, information", class: "form-control" %>
+            </div>
+            <div class="col-md-4">
+              <%= submit_tag "search", class: "btn btn-warning" %>
+            </div>
+          </div>
         <% end %>
         <div class="row">
           <% @products.each do |product|%>
             <%= render 'product', product: product %>
           <% end %>
-        </div>  
+        </div>
       </div>
     </div>
   </div>

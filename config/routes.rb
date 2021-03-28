@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       resources :products
     end
     resources :products, only: [:create, :index]
+    resources :orders, only: [:index]
+    resources :users, only: [:index]
 
     resources :toppings, except: [:update, :edit, :show]
     resources :conversations, only: [:create] do

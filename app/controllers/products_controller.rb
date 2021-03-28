@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     @comments = @product.comments.count
     @q = params[:search]
     if @q.present?
-      @products = Product.search(params[:search], load: true)
+      @products = Product.search_by_name_or_information(params[:search])
     else
       @products = Product.all
     end
@@ -18,14 +18,14 @@ class ProductsController < ApplicationController
   def show
     @comment = @product.comments.build
     @comments = @product.comments.reject{|i| i.id.blank?}
-    @comments = Kaminari.paginate_array(@comments).page(params[:page]).per(5) 
+    @comments = Kaminari.paginate_array(@comments).page(params[:page]).per(5)
     @toppings = Topping.all
     @cart_item = @product.cart_items.build
   end
 
   def vote
      if !current_user.liked? @product
-       @product.liked_by current_user  
+       @product.liked_by current_user
      elsif current_user.liked? @product
        @product.unliked_by current_user
      end

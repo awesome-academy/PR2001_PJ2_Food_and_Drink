@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="right-title-text">  
+        <div class="right-title-text">
           <ul>
             <li class="breadcrumb-item">
               <%= link_to "Home", root_url %>
@@ -22,14 +22,14 @@
     </div>
   </div>
 </section>
-<section class="all-partners">      
-  <div class="container">   
-    <div class="row">         
+<section class="all-partners" style="margin-bottom: 10px;">
+  <div class="container">
+    <div class="row">
       <div class="col-lg-8 col-md-8">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <% @product.images.each_with_index do |image, index| %>
-              <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" 
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>"
               class="<%= index == 0 ? 'active' : '' %>">
               </li>
             <% end %>
@@ -52,16 +52,13 @@
           </a>
         <div class="resto-meal-dt">
           <div class="resto-detail">
-            <div class="resto-picy">
+            <div class="resto-picy" style="position: absolute; top: 525px;">
               <%= link_to category_path(@product.category.id) do %>
-              <%= image_tag @product.category.image , class:"fix-size-category" %>
+              <%= image_tag @product.category.image , class:"fix-size-category", style: "border-radius: 50%; width: 300px;" %>
               <% end %>
             </div>
-          </div> 
+          </div>
           <div class="name-location">
-            <%= link_to category_path(@product.category.id) do %>
-            <h1><%= @product.category.name %></h1>
-            <% end %>
             <div class="right-side-btns">
           <div class="bagde-dt">
             <div class="partner-badge">
@@ -115,44 +112,46 @@
               <li class="nav-item" role="presentation">
                 <%= link_to product_comments_path(@product), class:"nav-link active" do %>
                   <b class="quality-comment"><%= pluralize(@comments.count, "comment")%></b>
-                  <span class="text-comment"></span> 
+                  <span class="text-comment"></span>
                 <% end %>
               </li>
             </ul>
-            <div class="tab-content">
-              <div class="tab-pane active" role="tabpanel" id="comments">
-                <div class="comment-post">
-                  <div class="post-items">
-                    <div class="img-dp">
-                      <i class="fas fa-user"></i>
-                    </div>
-                    <% args = (signed_in?)? [current_user,@comment] : [@product,@comment] %>
-                    <%= form_for args, remote:true do |f|%>
-                      <%= f.text_field :content, class:"post-input", placeholder:"Write a comment"%>
-                      <%= f.hidden_field :product_id, value: @product.id %>
-                      <% if signed_in?%>
-                        <%= f.hidden_field :user_id, value: current_user.id %>
+            <% if signed_in?(:user) %>
+              <div class="tab-content">
+                <div class="tab-pane active" role="tabpanel" id="comments">
+                  <div class="comment-post">
+                    <div class="post-items">
+                      <div class="img-dp">
+                        <i class="fas fa-user"></i>
+                      </div>
+                      <% args = (signed_in?(:user))? [current_user,@comment] : [@product,@comment] %>
+                      <%= form_for args, remote:true do |f|%>
+                        <%= f.text_field :content, class:"post-input", placeholder:"Write a comment"%>
+                        <%= f.hidden_field :product_id, value: @product.id %>
+                        <% if signed_in?%>
+                          <%= f.hidden_field :user_id, value: current_user.id %>
+                        <% end %>
+                        <%= f.submit "Post comment", class:"submit-btn btn-link", style: "margin-left:10px" %>
                       <% end %>
-                      <%= f.submit "Post comment", class:"submit-btn btn-link", style: "margin-left:10px" %>
+                    </div>
+                  </div>
+                  <% if @comments.blank? %>
+                  <div class="main-comments">
+                    <div class="comment-1">
+                      <h3>No comment for this product</h3>
+                    </div>
+                  </div>
+                  <% else %>
+                    <% @comments.each do |comment|%>
+                      <%= render 'comment', comment: comment  %>
                     <% end %>
-                  </div>
-                </div>
-                <% if @comments.blank? %>
-                <div class="main-comments">
-                  <div class="comment-1">
-                    <h3>No comment for this product</h3>
-                  </div>
-                </div>
-                <% else %>
-                  <% @comments.each do |comment|%>
-                    <%= render 'comment', comment: comment  %>
                   <% end %>
-                <% end %>
-                <div class="main-pagination">
-                  <%= paginate @comments %>
-                </div>   
-              </div>      
-            </div>  
+                  <div class="main-pagination">
+                    <%= paginate @comments %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -168,7 +167,7 @@
           <div class="price">
             <% if @product.old_price.present? %>
               <strike>
-                <span>$<%= @product.old_price%>.00</span>  
+                <span>$<%= @product.old_price%>.00</span>
               </strike>
             <% end %>
             <span data-price="<%= @product.price %>" id="product-price">
@@ -221,8 +220,8 @@
         </div>
       </div>
     </div>
-  </div> 
-</section> 
+  </div>
+</section>
 <script>
   $("#qty_input").change(function() {
     const productPrice = $("#product-price").data("price");
